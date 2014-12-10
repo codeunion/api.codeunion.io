@@ -19,6 +19,7 @@ pickle-email-*.html
 /vendor/bundle
 /lib/bundler/man/
 .rvmrc
+.env
 
 ## Documentation cache and generated files:
 /.yardoc/

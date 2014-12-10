@@ -125,6 +125,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   foreman
   pg
   pg_search

@@ -4,6 +4,7 @@ gem 'rails', '4.2.0.rc2'
 gem 'rails-api'
 
 gem 'unicorn'
+gem 'dotenv'
 gem 'foreman'
 
 gem 'pg'
