@@ -18,14 +18,14 @@ Find resources whose text contains a particular query
 GET /v1/search?:query_params
 ```
 
-### Parameters
+#### Parameters
 
 Name | Type | Description | Required
 -----|------|-------------|---------
 query | string | Search query | true
 category | string | See supported categories in `app/models/resource.rb` | false
 
-### Response
+#### Response
 
 ```json
 [
