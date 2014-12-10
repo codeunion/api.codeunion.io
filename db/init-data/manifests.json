@@ -1,0 +1,1278 @@
+[
+  {
+    "name": "Wall-B",
+    "description": "Build a social messaging web application with Sinatra.",
+    "private": true,
+    "url": "https://github.com/codeunion/Wall-B",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "datamapper",
+      "sqlite",
+      "heroku",
+      "building-crud-web-apps",
+      "relational-databases",
+      "html"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": true,
+    "notes": "Bundles guides into wiki."
+  }
+, {
+    "name": "air-stable",
+    "description": "AirBnb clone project, for horses.",
+    "private": true,
+    "url": "https://github.com/codeunion/air-stable",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "modeling-relational-data",
+      "authentication",
+      "templates-and-layouts",
+      "html"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "README doens't conform to project format. No starter code provided."
+  }
+, {
+    "name": "all-about-the-api",
+    "description": "We only think when we are confronted with problems... -JD",
+    "private": true,
+    "url": "https://github.com/codeunion/all-about-the-api",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "web-apis",
+      "twitter"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Unclear purpose. No clear steps. Sparse README. Stale."
+  }
+, {
+    "name": "applicant-kata",
+    "description": "Exercises for CodeUnion applicants.",
+    "private": true,
+    "url": "https://github.com/codeunion/applicant-kata",
+    "category": "exercises",
+    "tags": [
+      "ruby"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Unclear purpose. Stale. Sparse README."
+  }
+, {
+    "name": "assets",
+    "description": "A central repository to store publicly available static assets (e.g. images, PDFs) for use in projects, website, etc.",
+    "private": false,
+    "url": "https://github.com/codeunion/assets",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": true,
+    "has_wiki": false,
+    "notes": "Basically a CDN for media assets. Not necessarily the best solution."
+  }
+, {
+    "name": "blog",
+    "description": "The CodeUnion Blog",
+    "private": true,
+    "url": "https://github.com/codeunion/blog",
+    "category": "sites",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": ""
+  }
+, {
+    "name": "can-i-eat-here",
+    "description": "Yelp clone project using the Google Maps API.",
+    "private": true,
+    "url": "https://github.com/codeunion/can-i-eat-here",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "heroku",
+      "web-apis",
+      "geolocation-and-mapping"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "README doesn't conform to project format. Bundles project starter code and example."
+  }
+, {
+    "name": "codereview-sharing-tool",
+    "description": "A utility web application to accept github student feedback 'share-me' label web hooks.",
+    "private": true,
+    "url": "https://github.com/codeunion/codereview-sharing-tool",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Incomplete. Hard-coded with particular cohort email address."
+  }
+, {
+    "name": "codeunion-client",
+    "description": "The CodeUnion Command-Line Tool",
+    "private": true,
+    "url": "https://github.com/codeunion",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": ""
+  }
+, {
+    "name": "codeunion.github.io",
+    "description": "The CodeUnion Homepage",
+    "private": true,
+    "url": "https://github.com/codeunion/codeunion.github.io",
+    "category": "sites",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": ""
+  }
+, {
+    "name": "codeunion.io",
+    "description": "The website, the website, what what the website",
+    "private": true,
+    "url": "https://github.com/codeunion/codeunion.io",
+    "category": "sites",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": ""
+  }
+, {
+    "name": "crash-test-repo",
+    "description": "a place to experiment without bugging people",
+    "private": true,
+    "url": "https://github.com/codeunion/crash-test-repo",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Worth keeping?"
+  }
+, {
+    "name": "data-structures",
+    "description": "Data structure exercises",
+    "private": false,
+    "url": "https://github.com/codeunion/data-structures",
+    "category": "exercises",
+    "tags": [
+      "data-structures",
+      "ruby",
+      "computer-science"
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": true,
+    "has_wiki": false,
+    "notes": "No example implementations. Incomplete specs. Unclear order."
+  }
+, {
+    "name": "dotenv-example",
+    "description": "A tutorial on using the dotenv gem to separate sensitive data (e.g., passwords, tokens) from your code.",
+    "private": false,
+    "url": "https://github.com/codeunion/dotenv-example",
+    "category": "guides",
+    "tags": [
+      "ruby",
+      "dotenv",
+      "environment-variables"
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": ""
+  }
+, {
+    "name": "example-rails-4-image-gallery",
+    "description": "A feature-test-driven rails 4 image gallery demonstrating rspec, devise, and carrierwave",
+    "private": false,
+    "url": "https://github.com/codeunion/example-rails-4-image-gallery",
+    "category": "examples",
+    "tags": [
+      "ruby",
+      "rails",
+      "file-uploading",
+      "authentication",
+      "relational-databases",
+      "aws",
+      "s3",
+      "carrierwave",
+      "devise",
+      "rspec",
+      "behavior-driven-development"
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": true,
+    "has_wiki": false,
+    "notes": "Such commit history!"
+  }
+, {
+    "name": "examples-sinatra",
+    "description": "A repository of example Sinatra apps illustrating common patterns in web development",
+    "private": false,
+    "url": "https://github.com/codeunion/examples-sinatra",
+    "category": "examples",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "authentication",
+      "file-uploading"
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Incomplete. Missing 3 listed example applications."
+  }
+, {
+    "name": "feedback-requests-pro-engineering",
+    "description": "",
+    "private": true,
+    "url": "https://github.com/codeunion/feedback-requests-pro-engineering",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "EMPTY. No clear purpose."
+  }
+, {
+    "name": "feedback-requests-topics-in-cs",
+    "description": "Feedback Requests for Topics in CS",
+    "private": true,
+    "url": "https://github.com/codeunion/feedback-requests-topics-in-cs",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "EMPTY REPO"
+  }
+, {
+    "name": "feedback-requests-web-fundamentals",
+    "description": "and we begin.",
+    "private": true,
+    "url": "https://github.com/codeunion/feedback-requests-web-fundamentals",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Empty repo."
+  }
+, {
+    "name": "fundamentals-of-web-development",
+    "description": "Web Fundamentals course base repo. Includes many instructional materials in the wiki, including references and guides.",
+    "private": true,
+    "url": "https://github.com/codeunion/fundamentals-of-web-development",
+    "category": "guides",
+    "tags": [
+      "ruby",
+      "html",
+      "css",
+      "javascript",
+      "sinatra",
+      "http",
+      "cookies",
+      "sessions",
+      "authentication",
+      "file-uploading",
+      "persistence",
+      "wireframing",
+      "ajax",
+      "background-jobs",
+      "building-crud-web-apps",
+      "relational-databases",
+      "jquery"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": true,
+    "notes": "Most materials in the wiki."
+  }
+, {
+    "name": "glossary.codeunion.io",
+    "description": "A collection of terms and definitions used by computer programmers",
+    "private": false,
+    "url": "https://github.com/codeunion/glossary.codeunion.io",
+    "category": "sites",
+    "tags": [
+
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": true,
+    "has_wiki": false,
+    "notes": ""
+  }
+, {
+    "name": "image-upload-example",
+    "description": "Image Upload Examples",
+    "private": true,
+    "url": "https://github.com/codeunion/image-upload-example",
+    "category": "examples",
+    "tags": [
+      "ruby",
+      "rails",
+      "file-uploading"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Only one commit. No real examples. Sparse. Stale."
+  }
+, {
+    "name": "instructors-content",
+    "description": "aggregation of information, tips, tools and requirements for being an instructor at CodeUnion.",
+    "private": true,
+    "url": "https://github.com/codeunion/instructors-content",
+    "category": "docs",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": true,
+    "notes": "No real organizational structure as of yet. Wiki is sparse."
+  }
+, {
+    "name": "interviews",
+    "description": "Files, information, and other miscellany related to student interviews",
+    "private": true,
+    "url": "https://github.com/codeunion/interviews",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Looks stale."
+  }
+, {
+    "name": "javascript-exercises",
+    "description": "Exercises in JavaScript programming in node.js and the browser. Designed to hone skills through practice and repetition.",
+    "private": false,
+    "url": "https://github.com/codeunion/javascript-exercises",
+    "category": "exercises",
+    "tags": [
+      "javascript",
+      "evented-programming",
+      "callbacks",
+      "document-object-model",
+      "basic-syntax",
+      "data-structures",
+      "node-js",
+      "algorithms",
+      "data-types",
+      "control-flow",
+      "encoding",
+      "data-transformation"
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": true,
+    "has_wiki": false,
+    "notes": "Incomplete. Still missing many chapters. Formatting inconsistent."
+  }
+, {
+    "name": "linkedout-example",
+    "description": "Example code for codeunion/linkedout: a one-page résumé management system.",
+    "private": true,
+    "url": "https://github.com/codeunion/linkedout-example",
+    "category": "examples",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "javascript",
+      "jquery",
+      "ajax",
+      "request-routing",
+      "json",
+      "dom-manipulation"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": true,
+    "has_wiki": false,
+    "notes": ""
+  }
+, {
+    "name": "linkedout",
+    "description": "A one-page résumé management system.",
+    "private": true,
+    "url": "https://github.com/codeunion/linkedout",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "javascript",
+      "jquery",
+      "ajax",
+      "request-routing",
+      "json",
+      "dom-manipulation"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": true,
+    "has_wiki": false,
+    "notes": "Just a project guide. Source code in separate repo."
+  }
+, {
+    "name": "open-source-kata",
+    "description": "Exercises in fundamental programming concepts using Ruby. Email stuck@codeunion.io for feedback on your code and help!",
+    "private": false,
+    "url": "https://github.com/codeunion/open-source-kata",
+    "category": "exercises",
+    "tags": [
+      "ruby",
+      "algorithms"
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": true,
+    "has_wiki": false,
+    "notes": "Is there a reason to duplicate the katas between open-source and closed?"
+  }
+, {
+    "name": "outlines",
+    "description": "Syllabi and outlines for all Code Union courses.",
+    "private": true,
+    "url": "https://github.com/codeunion/outlines",
+    "category": "docs",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Stale. Purpose unclear."
+  }
+, {
+    "name": "overheard-guide",
+    "description": "A guide to learning from the overheard-* repos.",
+    "private": true,
+    "url": "https://github.com/codeunion/overheard-guide",
+    "category": "guides",
+    "tags": [
+
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "No README. Incomplete. Stale."
+  }
+, {
+    "name": "overheard-server",
+    "description": "Example project for a web app that stores and shares hilarious, out of context quotess and quips.",
+    "private": false,
+    "url": "https://github.com/codeunion/overheard-server",
+    "category": "examples",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "datamapper",
+      "sqlite"
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": true,
+    "has_wiki": false,
+    "notes": "Unclear purpose. Is it an example project or a tool?"
+  }
+, {
+    "name": "photo-gallery-cli",
+    "description": "Command-line tool for generating an HTML photo gallery from a set of photos.",
+    "private": true,
+    "url": "https://github.com/codeunion/photo-gallery-cli",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "cli-app",
+      "html",
+      "templates-and-layouts"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "More verbose than most projects, maybe too much so."
+  }
+, {
+    "name": "pictr-rails",
+    "description": "The starting point for a multi-user photo-upload site built in rails",
+    "private": false,
+    "url": "https://github.com/codeunion/pictr-rails",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "rails",
+      "testing",
+      "writing-documentation",
+      "devise",
+      "carrierwave",
+      "file-uploading"
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": true,
+    "has_wiki": false,
+    "notes": "Just the guide for a project; starter code in separate repo. LICENSE has unnecessary .md extension."
+  }
+, {
+    "name": "pro-engineering-katas",
+    "description": "Exercises to practice professional software engineering tasks in Ruby.",
+    "private": true,
+    "url": "https://github.com/codeunion/pro-engineering-katas",
+    "category": "exercises",
+    "tags": [
+      "ruby",
+      "rspec",
+      "active-record"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Stale. Incomplete."
+  }
+, {
+    "name": "pro-engineering",
+    "description": "Rails, TDD, Rspec, OO Design... In short the works!",
+    "private": true,
+    "url": "https://github.com/codeunion/pro-engineering",
+    "category": "guides",
+    "tags": [
+      "rails",
+      "rspec",
+      "object-oriented-design",
+      "test-driven-development",
+      "best-practices"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": true,
+    "notes": "Master repo for pro-engineering workshop. Uses both wiki and files. README is sparse."
+  }
+, {
+    "name": "project-template",
+    "description": "Template for creating new student projects",
+    "private": true,
+    "url": "https://github.com/codeunion/project-template",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": true,
+    "has_wiki": false,
+    "notes": "LICENSE has unnecessary .md extension. Usage unclear."
+  }
+, {
+    "name": "rails-projects",
+    "description": "Ideas for Rails projects",
+    "private": true,
+    "url": "https://github.com/codeunion/rails-projects",
+    "category": "docs",
+    "tags": [
+
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Stale. Well organized. Maybe the wrong place for this information?"
+  }
+, {
+    "name": "request-for-feedback",
+    "description": "Project to build a command line app that allows for creating requests for feedback via Github API",
+    "private": true,
+    "url": "https://github.com/codeunion/request-for-feedback",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "web-apis",
+      "github",
+      "cli-app",
+      "authentication"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": true,
+    "notes": ""
+  }
+, {
+    "name": "request-o-matic",
+    "description": "Submit requests for feedback and checkrides from the command line. ",
+    "private": true,
+    "url": "https://github.com/codeunion/request-o-matic",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Stale. Does it work? README could be formatted better."
+  }
+, {
+    "name": "resource-audit",
+    "description": "Auditing tool for Code Union's curricular, instructional, tooling, and documentation resources.",
+    "private": true,
+    "url": "https://github.com/codeunion/resource-audit",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": ""
+  }
+, {
+    "name": "rpn-calculator",
+    "description": "A command-line 'calculator' that understands reverse Polish notation. Written in Ruby.",
+    "private": false,
+    "url": "https://github.com/codeunion/rpn-calculator",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "data-structures",
+      "tokenizing",
+      "parsing",
+      "evaluation",
+      "cli-app"
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": true,
+    "has_wiki": false,
+    "notes": ""
+  }
+, {
+    "name": "ruby-exercises",
+    "description": "Exercises in fundamental programming concepts using Ruby. Designed to hone skills through practice and repetition.",
+    "private": false,
+    "url": "https://github.com/codeunion/ruby-exercises",
+    "category": "exercises",
+    "tags": [
+      "ruby",
+      "algorithms",
+      "data-types",
+      "control-flow",
+      "encoding",
+      "data-transformation"
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": true,
+    "has_wiki": false,
+    "notes": "Another duplicate of kata repos. Why so many?"
+  }
+, {
+    "name": "sales-marketing-strategy",
+    "description": "",
+    "private": true,
+    "url": "https://github.com/codeunion/sales-marketing-strategy",
+    "category": "docs",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": true,
+    "notes": "No clear purpose. Very sparse."
+  }
+, {
+    "name": "serverside-sinatra-katas",
+    "description": "Exercises to practice common tasks in writing server-side application code.",
+    "private": true,
+    "url": "https://github.com/codeunion/serverside-sinatra-katas",
+    "category": "exercises",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "building-crud-web-apps",
+      "sending-data-with-http",
+      "control-flow",
+      "request-routing"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": true,
+    "notes": "Duplication between wiki and README. Doesn't conform to exercise format."
+  }
+, {
+    "name": "simple-servers",
+    "description": "Example command line telnet servers.",
+    "private": true,
+    "url": "https://github.com/codeunion/simple-servers",
+    "category": "examples",
+    "tags": [
+      "ruby",
+      "telnet",
+      "http",
+      "networking"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": true,
+    "notes": "Instructions are in wiki, not README."
+  }
+, {
+    "name": "sinatra-get",
+    "description": "Project to Llearn how HTTP GET requests form the basis of interaction between clients and servers.",
+    "private": true,
+    "url": "https://github.com/codeunion/sinatra-get",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "http"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": true,
+    "notes": "Sparse instructions. Stale. Bundles guides in wiki with project style work."
+  }
+, {
+    "name": "sinatra-playground",
+    "description": "A small web application written with Sinatra. Pulls data from the Twitter API. Useful as a way to get started with building web applications.",
+    "private": true,
+    "url": "https://github.com/codeunion/sinatra-playground",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "playground",
+      "web-servers"
+    ],
+    "access": [
+      "staff",
+      "students"
+    ],
+    "license": false,
+    "has_wiki": true,
+    "notes": "Instructions are in the wiki, not the README. Unclear category: project or guide?"
+  }
+, {
+    "name": "sinatra-singing-tweets",
+    "description": "A small app designed to evaluate your understanding of the client/server roundtrip process.",
+    "private": true,
+    "url": "https://github.com/codeunion/sinatra-singing-tweets",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "twitter",
+      "web-apis",
+      "datamapper"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Purpose unclear. README not properly formattedd. No clear category."
+  }
+, {
+    "name": "slack-client",
+    "description": "A Ruby API client for Slack (http://slack.com) [ALPHA]",
+    "private": false,
+    "url": "https://github.com/codeunion/slack-client",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": ""
+  }
+, {
+    "name": "social-wall",
+    "description": "A small web application built for beginners that highlights essential web programming topicss.",
+    "private": false,
+    "url": "https://github.com/codeunion/social-wall",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "http",
+      "persistence",
+      "html",
+      "templates-and-layouts",
+      "deployment"
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Has several screencasts embedded in README. Lots of images embedded in the README make for difficult reading. Has versions. Moderately useful commit history."
+  }
+, {
+    "name": "sql-queries",
+    "description": "Exercises to practice fundamental SQL queries and concepts. Uses SQLite3.",
+    "private": true,
+    "url": "https://github.com/codeunion/sql-queries",
+    "category": "exercises",
+    "tags": [
+      "sql",
+      "sqlite",
+      "relational-databases",
+      "database-schemas",
+      "querying-databases"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Doesn't follow any standard exercise format. Needs standardization."
+  }
+, {
+    "name": "sql-workshop",
+    "description": "Repository for SQL Workshop",
+    "private": true,
+    "url": "https://github.com/codeunion/sql-workshop",
+    "category": "guides",
+    "tags": [
+      "sql",
+      "relational-databases",
+      "database-schemas"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "No README. Loose structure."
+  }
+, {
+    "name": "student-logs",
+    "description": "write about interesting things that happen to you through your experiences with CodeUnion",
+    "private": true,
+    "url": "https://github.com/codeunion/student-logs",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "EMPTY REPO. Unclear purpose / structure."
+  }
+, {
+    "name": "student-utils",
+    "description": "Tools to make life as a coder 'slightly' more cooperative.",
+    "private": true,
+    "url": "https://github.com/codeunion/student-utils",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "No README. Stale. Unclear purpose."
+  }
+, {
+    "name": "super_wall",
+    "description": "Soooooooooo super!",
+    "private": false,
+    "url": "https://github.com/codeunion/super_wall",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "rails"
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "INCOMPLETE. Boilerplate README. No iterations listed."
+  }
+, {
+    "name": "symbolic-calculator",
+    "description": "A symbolic calculator project in Ruby",
+    "private": false,
+    "url": "https://github.com/codeunion/symbolic-calculator",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "expression-tree",
+      "evaluation",
+      "variable-binding"
+    ],
+    "access": [
+      "public",
+      "students",
+      "staff"
+    ],
+    "license": true,
+    "has_wiki": false,
+    "notes": "Lacking examples for iteration 2."
+  }
+, {
+    "name": "text-analysis",
+    "description": "A Ruby program that displays various statistics about a piece of text",
+    "private": true,
+    "url": "https://github.com/codeunion/text-analysis",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "algorithms",
+      "data-analysis",
+      "cli-app"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": true,
+    "notes": "Instructions are in wiki not README"
+  }
+, {
+    "name": "topics-in-cs",
+    "description": "The home base repository for Topics in CS",
+    "private": true,
+    "url": "https://github.com/codeunion/topics-in-cs",
+    "category": "guides",
+    "tags": [
+      "computer-science",
+      "data-structures",
+      "algorithms",
+      "ruby",
+      "c",
+      "syntax-trees"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "No README. Unclear usage."
+  }
+, {
+    "name": "tweetalyzer",
+    "description": "Project to analyze tweets. Meant to integrate with text-analysis tool.",
+    "private": true,
+    "url": "https://github.com/codeunion/tweetalyzer",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "twitter",
+      "web-apis",
+      "data-analysis"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Stale. Unclear purpose & steps."
+  }
+, {
+    "name": "twitter-client",
+    "description": "Build a command line Twitter client",
+    "private": true,
+    "url": "https://github.com/codeunion/twitter-client",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "web-apis",
+      "twitter",
+      "cli-app"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": true,
+    "notes": "Duplicate info in wiki and README"
+  }
+, {
+    "name": "url-shortener",
+    "description": "A basic URL shortener project written with Rails.",
+    "private": true,
+    "url": "https://github.com/codeunion/url-shortener",
+    "category": "projects",
+    "tags": [
+      "ruby",
+      "rails",
+      "building-crud-web-apps",
+      "authentication"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": true,
+    "notes": "Instructions are in wiki, not README. Bundles project and starter code."
+  }
+, {
+    "name": "utils",
+    "description": "Various scripts, utilities, and other doodads",
+    "private": true,
+    "url": "https://github.com/codeunion/utils",
+    "category": "tools",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": ""
+  }
+, {
+    "name": "web-fundamentals-weekly-katas",
+    "description": "Exercises in fundamental programming concepts using Ruby. Designed to hone skills through practice and repetition.",
+    "private": true,
+    "url": "https://github.com/codeunion/web-fundamentals-weekly-katas",
+    "category": "exercises",
+    "tags": [
+      "ruby",
+      "algorithms",
+      "data-types",
+      "control-flow",
+      "encoding",
+      "data-transformation"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": true,
+    "notes": "Wiki is empty."
+  }
+, {
+    "name": "workbench",
+    "description": "Project briefs, one page summaries and background research",
+    "private": true,
+    "url": "https://github.com/codeunion/workbench",
+    "category": "docs",
+    "tags": [
+
+    ],
+    "access": [
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Stale, seems to duplicate some of the purpose of instructors-content"
+  }
+, {
+    "name": "yardsale",
+    "description": "Example Craigslist clone app.",
+    "private": true,
+    "url": "https://github.com/codeunion/yardsale",
+    "category": "examples",
+    "tags": [
+      "ruby",
+      "sinatra",
+      "environment-variables",
+      "runtime-environments",
+      "building-crud-web-apps"
+    ],
+    "access": [
+      "students",
+      "staff"
+    ],
+    "license": false,
+    "has_wiki": false,
+    "notes": "Very shallow commit history. Source files have medium-level commenting."
+  }
+]
