@@ -1,7 +1,20 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Resource.destroy_all
+
+require 'json'
+
+DATA_DIR = File.expand_path('../init-data', __FILE__)
+
+manifests_file = File.join(DATA_DIR, 'manifests.json')
+readmes_dir = File.join(DATA_DIR, 'readmes')
+
+manifests = JSON.parse( File.read( manifests_file ) )
+
+resources = manifests.map do |manifest|
+  readme_file = File.join(readmes_dir, manifest['name'] + '.md')
+
+  readme_text = File.exists?(readme_file) ? File.read(readme_file) : nil
+
+  { manifest: manifest, readme: readme_text }
+end
+
+Resource.create(resources)
