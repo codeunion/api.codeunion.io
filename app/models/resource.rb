@@ -3,7 +3,14 @@ class Resource < ActiveRecord::Base
 
   CATEGORIES = %w{ exercises projects examples }
 
-  pg_search_scope :search_in_readme, against: :readme
+  pg_search_scope :search_in_readme,
+                  against: :readme,
+                  using: {
+                    tsearch: {
+                      dictionary: "english",
+                      any_word: true
+                    }
+                  }
 
   def self.search(options = {})
     category = options.fetch(:category, nil)
