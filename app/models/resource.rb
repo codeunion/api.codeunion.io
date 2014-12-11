@@ -5,13 +5,26 @@ class Resource < ActiveRecord::Base
 
   pg_search_scope :search_in_readme, against: :readme
 
+  def self.search(options = {})
+    category = options.fetch(:category, nil)
+    query    = options.fetch(:query, nil)
+
+    resources = Resource.all
+
+    if category && self.valid_category?(category)
+      resources = resources.where("manifest->>'category' = ?", category.to_s)
+    end
+
+    if query
+      resources = resources.search_in_readme(query)
+    end
+
+    return resources
+  end
+
   # This is a hack. Better to use something like ActiveModel::Serializer
   def as_json(options = {})
     self.manifest
-  end
-
-  def self.in_category(category)
-    self.where("manifest->>'category' = ?", category.to_s)
   end
 
   def self.valid_category?(category)

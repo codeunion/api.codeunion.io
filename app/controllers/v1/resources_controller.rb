@@ -1,28 +1,13 @@
 module V1
   class ResourcesController < ApplicationController
     def search
-      category = params[:category]
-      query    = params[:query]
+      render json: Resource.search(search_params)
+    end
 
-      unless query
-        render json: { error: "Must provide a URL parameter with key 'query'." },
-               status: :unprocessable_entity
-        return
-      end
+  private
 
-      if category && !Resource.valid_category?(category)
-        render json: { error: "Category '#{category}' does not exist." },
-               status: :unprocessable_entity
-        return
-      end
-
-      if category
-        resources = Resource.in_category(category).search_in_readme(query)
-      else
-        resources = Resource.search_in_readme(query)
-      end
-
-      render json: resources
+    def search_params
+      params.slice(:category, :query)
     end
   end
 end
