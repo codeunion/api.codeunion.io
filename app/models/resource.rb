@@ -24,6 +24,7 @@ class Resource < ActiveRecord::Base
 
     if query
       resources = resources.search_in_readme(query)
+                           .highlight_result(query)
     end
 
     return resources
@@ -36,5 +37,18 @@ class Resource < ActiveRecord::Base
 
   def self.valid_category?(category)
     CATEGORIES.include? category.downcase
+  end
+
+  def self.highlight_result(query)
+    self.select("ts_headline(#{quoted_table_name}.\"readme\", (#{ts_queries(query)}), 'StartSel=<match>, StopSel=</match>, MinWords=20') AS excerpt")
+  end
+
+private
+
+  # Warning: improper interpolation techniques used. Not safe. Needs proper fix.
+  def self.ts_queries(query)
+    query.split(" ").map do |query_term|
+      "to_tsquery('english', ''' ' || '#{query_term}' || ' ''')"
+    end.join(' || ')
   end
 end
