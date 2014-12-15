@@ -56,6 +56,12 @@ Name | Type | Description | Required
 query | string | Search query | true
 category | string | See supported categories in `app/models/resource.rb` | false
 
+#### Request
+
+```
+GET /v1/search?category=examples&query=REST%20API
+```
+
 #### Response
 
 ```json
@@ -79,7 +85,8 @@ category | string | See supported categories in `app/models/resource.rb` | false
     ],
     "license": true,
     "has_wiki": false,
-    "notes": ""
+    "notes": "",
+    "excerpt": "<match>REST</match> <match>API</match> to add and list Overheards\n\nFor a list of planned and implemented features, known bugs, etc. check the\n[CHANGELOG"
   }
 ]
 ```

@@ -32,7 +32,12 @@ class Resource < ActiveRecord::Base
 
   # This is a hack. Better to use something like ActiveModel::Serializer
   def as_json(options = {})
-    self.manifest
+    json = self.manifest
+
+    # If a highlighted match was found, add it to the JSON
+    json["excerpt"] = respond_to?(:excerpt) ? excerpt : ""
+
+    return json
   end
 
   def self.valid_category?(category)
