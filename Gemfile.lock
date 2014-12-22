@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/openspectrum/pg_search.git
   revision: 72773d996616b8639cacbf5803e886c2ae893d68
-  branch: tw/pg_highlight
+  ref: 72773
   specs:
     pg_search (0.7.8)
       activerecord (>= 3.1)
