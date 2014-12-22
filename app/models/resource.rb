@@ -8,7 +8,11 @@ class Resource < ActiveRecord::Base
                   using: {
                     tsearch: {
                       dictionary: "english",
-                      any_word: true
+                      any_word: true,
+                      highlight: {
+                        start_sel: "<match>",
+                        stop_sel: "</match>"
+                      }
                     }
                   }
 
@@ -24,7 +28,6 @@ class Resource < ActiveRecord::Base
 
     if query
       resources = resources.search_in_readme(query)
-                           .highlight_result(query)
     end
 
     return resources
@@ -35,25 +38,12 @@ class Resource < ActiveRecord::Base
     json = self.manifest
 
     # If a highlighted match was found, add it to the JSON
-    json["excerpt"] = respond_to?(:excerpt) ? excerpt : ""
+    json["excerpt"] = respond_to?(:pg_highlight) ? pg_highlight : ""
 
     return json
   end
 
   def self.valid_category?(category)
     CATEGORIES.include? category.downcase
-  end
-
-  def self.highlight_result(query)
-    self.select("ts_headline(#{quoted_table_name}.\"readme\", (#{ts_queries(query)}), 'StartSel=<match>, StopSel=</match>, MinWords=20') AS excerpt")
-  end
-
-private
-
-  # Warning: improper interpolation techniques used. Not safe. Needs proper fix.
-  def self.ts_queries(query)
-    query.split(" ").map do |query_term|
-      "to_tsquery('english', ''' ' || '#{query_term}' || ' ''')"
-    end.join(' || ')
   end
 end

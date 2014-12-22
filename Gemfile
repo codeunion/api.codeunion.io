@@ -10,7 +10,7 @@ gem 'dotenv'
 gem 'foreman'
 
 gem 'pg'
-gem 'pg_search'
+gem 'pg_search', git: 'https://github.com/openspectrum/pg_search.git', branch: 'tw/pg_highlight'
 
 group :development do
   gem 'spring'
