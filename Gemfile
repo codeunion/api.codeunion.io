@@ -16,6 +16,10 @@ group :development do
   gem 'foreman'
 end
 
+group :test do
+  gem 'rspec-rails', '3.1.0'
+end
+
 group :production do
   gem 'rails_12factor'
 end
