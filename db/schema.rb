@@ -28,5 +28,4 @@ ActiveRecord::Schema.define(version: 20150102221958) do
     t.integer "rank"
     t.integer "resource_id"
   end
-
 end
