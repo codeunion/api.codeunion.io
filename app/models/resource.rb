@@ -1,4 +1,6 @@
 class Resource < ActiveRecord::Base
+  has_many :search_results
+
   include PgSearch
 
   CATEGORIES = %w{ exercises projects examples }
@@ -30,6 +32,13 @@ class Resource < ActiveRecord::Base
       resources = resources.search_in_readme(query)
     end
 
+    resources.each_with_index do |resource, rank|
+      resource.search_results.create({
+        query: query,
+        rank: rank
+      })
+    end
+
     return resources
   end
 
@@ -41,6 +50,10 @@ class Resource < ActiveRecord::Base
     json["excerpt"] = respond_to?(:pg_highlight) ? pg_highlight : ""
 
     return json
+  end
+
+  def has_search_results_for?(query)
+    search_results.where({ :query => query }).present?
   end
 
   def self.valid_category?(category)

@@ -8,8 +8,8 @@ After cloning the repository, run
 
 ```shell-session
 $ bundle install
-$ rake db:setup
-$ bundle exec foreman start
+$ bin/rake db:setup
+$ bin/foreman start
 ```
 
 **Note**: See below if `bundle exec` gives you an error along the lines of
