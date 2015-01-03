@@ -3,7 +3,7 @@ class Resource < ActiveRecord::Base
 
   include PgSearch
 
-  CATEGORIES = %w{ exercises projects examples }
+  CATEGORIES = %w{ exercise project example }
   RANK_BY_UNIQUE_WORDS_IN_DOCUMENT = 8
   RANK_BY_MEAN_HARMONIC_DISTANCE   = 4
 

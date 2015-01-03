@@ -4,7 +4,7 @@
     "description": "Build a social messaging web application with Sinatra.",
     "private": true,
     "url": "https://github.com/codeunion/Wall-B",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "sinatra",
@@ -28,7 +28,7 @@
     "description": "AirBnb clone project, for horses.",
     "private": true,
     "url": "https://github.com/codeunion/air-stable",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "sinatra",
@@ -50,7 +50,7 @@
     "description": "We only think when we are confronted with problems... -JD",
     "private": true,
     "url": "https://github.com/codeunion/all-about-the-api",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "sinatra",
@@ -70,7 +70,7 @@
     "description": "Exercises for CodeUnion applicants.",
     "private": true,
     "url": "https://github.com/codeunion/applicant-kata",
-    "category": "exercises",
+    "category": "exercise",
     "tags": [
       "ruby"
     ],
@@ -87,7 +87,7 @@
     "description": "A central repository to store publicly available static assets (e.g. images, PDFs) for use in projects, website, etc.",
     "private": false,
     "url": "https://github.com/codeunion/assets",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -105,7 +105,7 @@
     "description": "The CodeUnion Blog",
     "private": true,
     "url": "https://github.com/codeunion/blog",
-    "category": "sites",
+    "category": "site",
     "tags": [
 
     ],
@@ -121,7 +121,7 @@
     "description": "Yelp clone project using the Google Maps API.",
     "private": true,
     "url": "https://github.com/codeunion/can-i-eat-here",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "sinatra",
@@ -142,7 +142,7 @@
     "description": "A utility web application to accept github student feedback 'share-me' label web hooks.",
     "private": true,
     "url": "https://github.com/codeunion/codereview-sharing-tool",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -158,7 +158,7 @@
     "description": "The CodeUnion Command-Line Tool",
     "private": true,
     "url": "https://github.com/codeunion",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -174,7 +174,7 @@
     "description": "The CodeUnion Homepage",
     "private": true,
     "url": "https://github.com/codeunion/codeunion.github.io",
-    "category": "sites",
+    "category": "site",
     "tags": [
 
     ],
@@ -190,7 +190,7 @@
     "description": "The website, the website, what what the website",
     "private": true,
     "url": "https://github.com/codeunion/codeunion.io",
-    "category": "sites",
+    "category": "site",
     "tags": [
 
     ],
@@ -206,7 +206,7 @@
     "description": "a place to experiment without bugging people",
     "private": true,
     "url": "https://github.com/codeunion/crash-test-repo",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -222,7 +222,7 @@
     "description": "Data structure exercises",
     "private": false,
     "url": "https://github.com/codeunion/data-structures",
-    "category": "exercises",
+    "category": "exercise",
     "tags": [
       "data-structures",
       "ruby",
@@ -242,7 +242,7 @@
     "description": "A tutorial on using the dotenv gem to separate sensitive data (e.g., passwords, tokens) from your code.",
     "private": false,
     "url": "https://github.com/codeunion/dotenv-example",
-    "category": "guides",
+    "category": "guide",
     "tags": [
       "ruby",
       "dotenv",
@@ -262,7 +262,7 @@
     "description": "A feature-test-driven rails 4 image gallery demonstrating rspec, devise, and carrierwave",
     "private": false,
     "url": "https://github.com/codeunion/example-rails-4-image-gallery",
-    "category": "examples",
+    "category": "example",
     "tags": [
       "ruby",
       "rails",
@@ -290,7 +290,7 @@
     "description": "A repository of example Sinatra apps illustrating common patterns in web development",
     "private": false,
     "url": "https://github.com/codeunion/examples-sinatra",
-    "category": "examples",
+    "category": "example",
     "tags": [
       "ruby",
       "sinatra",
@@ -311,7 +311,7 @@
     "description": "",
     "private": true,
     "url": "https://github.com/codeunion/feedback-requests-pro-engineering",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -328,7 +328,7 @@
     "description": "Feedback Requests for Topics in CS",
     "private": true,
     "url": "https://github.com/codeunion/feedback-requests-topics-in-cs",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -344,7 +344,7 @@
     "description": "and we begin.",
     "private": true,
     "url": "https://github.com/codeunion/feedback-requests-web-fundamentals",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -360,7 +360,7 @@
     "description": "Web Fundamentals course base repo. Includes many instructional materials in the wiki, including references and guides.",
     "private": true,
     "url": "https://github.com/codeunion/fundamentals-of-web-development",
-    "category": "guides",
+    "category": "guide",
     "tags": [
       "ruby",
       "html",
@@ -393,7 +393,7 @@
     "description": "A collection of terms and definitions used by computer programmers",
     "private": false,
     "url": "https://github.com/codeunion/glossary.codeunion.io",
-    "category": "sites",
+    "category": "site",
     "tags": [
 
     ],
@@ -411,7 +411,7 @@
     "description": "Image Upload Examples",
     "private": true,
     "url": "https://github.com/codeunion/image-upload-example",
-    "category": "examples",
+    "category": "example",
     "tags": [
       "ruby",
       "rails",
@@ -430,7 +430,7 @@
     "description": "aggregation of information, tips, tools and requirements for being an instructor at CodeUnion.",
     "private": true,
     "url": "https://github.com/codeunion/instructors-content",
-    "category": "docs",
+    "category": "doc",
     "tags": [
 
     ],
@@ -446,7 +446,7 @@
     "description": "Files, information, and other miscellany related to student interviews",
     "private": true,
     "url": "https://github.com/codeunion/interviews",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -462,7 +462,7 @@
     "description": "Exercises in JavaScript programming in node.js and the browser. Designed to hone skills through practice and repetition.",
     "private": false,
     "url": "https://github.com/codeunion/javascript-exercises",
-    "category": "exercises",
+    "category": "exercise",
     "tags": [
       "javascript",
       "evented-programming",
@@ -491,7 +491,7 @@
     "description": "Example code for codeunion/linkedout: a one-page résumé management system.",
     "private": true,
     "url": "https://github.com/codeunion/linkedout-example",
-    "category": "examples",
+    "category": "example",
     "tags": [
       "ruby",
       "sinatra",
@@ -515,7 +515,7 @@
     "description": "A one-page résumé management system.",
     "private": true,
     "url": "https://github.com/codeunion/linkedout",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "sinatra",
@@ -539,7 +539,7 @@
     "description": "Exercises in fundamental programming concepts using Ruby. Email stuck@codeunion.io for feedback on your code and help!",
     "private": false,
     "url": "https://github.com/codeunion/open-source-kata",
-    "category": "exercises",
+    "category": "exercise",
     "tags": [
       "ruby",
       "algorithms"
@@ -558,7 +558,7 @@
     "description": "Syllabi and outlines for all Code Union courses.",
     "private": true,
     "url": "https://github.com/codeunion/outlines",
-    "category": "docs",
+    "category": "doc",
     "tags": [
 
     ],
@@ -574,7 +574,7 @@
     "description": "A guide to learning from the overheard-* repos.",
     "private": true,
     "url": "https://github.com/codeunion/overheard-guide",
-    "category": "guides",
+    "category": "guide",
     "tags": [
 
     ],
@@ -591,7 +591,7 @@
     "description": "Example project for a web app that stores and shares hilarious, out of context quotess and quips.",
     "private": false,
     "url": "https://github.com/codeunion/overheard-server",
-    "category": "examples",
+    "category": "example",
     "tags": [
       "ruby",
       "sinatra",
@@ -612,7 +612,7 @@
     "description": "Command-line tool for generating an HTML photo gallery from a set of photos.",
     "private": true,
     "url": "https://github.com/codeunion/photo-gallery-cli",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "cli-app",
@@ -632,7 +632,7 @@
     "description": "The starting point for a multi-user photo-upload site built in rails",
     "private": false,
     "url": "https://github.com/codeunion/pictr-rails",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "rails",
@@ -656,7 +656,7 @@
     "description": "Exercises to practice professional software engineering tasks in Ruby.",
     "private": true,
     "url": "https://github.com/codeunion/pro-engineering-katas",
-    "category": "exercises",
+    "category": "exercise",
     "tags": [
       "ruby",
       "rspec",
@@ -675,7 +675,7 @@
     "description": "Rails, TDD, Rspec, OO Design... In short the works!",
     "private": true,
     "url": "https://github.com/codeunion/pro-engineering",
-    "category": "guides",
+    "category": "guide",
     "tags": [
       "rails",
       "rspec",
@@ -696,7 +696,7 @@
     "description": "Template for creating new student projects",
     "private": true,
     "url": "https://github.com/codeunion/project-template",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -712,7 +712,7 @@
     "description": "Ideas for Rails projects",
     "private": true,
     "url": "https://github.com/codeunion/rails-projects",
-    "category": "docs",
+    "category": "doc",
     "tags": [
 
     ],
@@ -729,7 +729,7 @@
     "description": "Project to build a command line app that allows for creating requests for feedback via Github API",
     "private": true,
     "url": "https://github.com/codeunion/request-for-feedback",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "web-apis",
@@ -750,7 +750,7 @@
     "description": "Submit requests for feedback and checkrides from the command line. ",
     "private": true,
     "url": "https://github.com/codeunion/request-o-matic",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -767,7 +767,7 @@
     "description": "Auditing tool for Code Union's curricular, instructional, tooling, and documentation resources.",
     "private": true,
     "url": "https://github.com/codeunion/resource-audit",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -783,7 +783,7 @@
     "description": "A command-line 'calculator' that understands reverse Polish notation. Written in Ruby.",
     "private": false,
     "url": "https://github.com/codeunion/rpn-calculator",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "data-structures",
@@ -806,7 +806,7 @@
     "description": "Exercises in fundamental programming concepts using Ruby. Designed to hone skills through practice and repetition.",
     "private": false,
     "url": "https://github.com/codeunion/ruby-exercises",
-    "category": "exercises",
+    "category": "exercise",
     "tags": [
       "ruby",
       "algorithms",
@@ -829,7 +829,7 @@
     "description": "",
     "private": true,
     "url": "https://github.com/codeunion/sales-marketing-strategy",
-    "category": "docs",
+    "category": "doc",
     "tags": [
 
     ],
@@ -845,7 +845,7 @@
     "description": "Exercises to practice common tasks in writing server-side application code.",
     "private": true,
     "url": "https://github.com/codeunion/serverside-sinatra-katas",
-    "category": "exercises",
+    "category": "exercise",
     "tags": [
       "ruby",
       "sinatra",
@@ -867,7 +867,7 @@
     "description": "Example command line telnet servers.",
     "private": true,
     "url": "https://github.com/codeunion/simple-servers",
-    "category": "examples",
+    "category": "example",
     "tags": [
       "ruby",
       "telnet",
@@ -887,7 +887,7 @@
     "description": "Project to Llearn how HTTP GET requests form the basis of interaction between clients and servers.",
     "private": true,
     "url": "https://github.com/codeunion/sinatra-get",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "sinatra",
@@ -906,7 +906,7 @@
     "description": "A small web application written with Sinatra. Pulls data from the Twitter API. Useful as a way to get started with building web applications.",
     "private": true,
     "url": "https://github.com/codeunion/sinatra-playground",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "sinatra",
@@ -926,7 +926,7 @@
     "description": "A small app designed to evaluate your understanding of the client/server roundtrip process.",
     "private": true,
     "url": "https://github.com/codeunion/sinatra-singing-tweets",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "sinatra",
@@ -947,7 +947,7 @@
     "description": "A Ruby API client for Slack (http://slack.com) [ALPHA]",
     "private": false,
     "url": "https://github.com/codeunion/slack-client",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -965,7 +965,7 @@
     "description": "A small web application built for beginners that highlights essential web programming topicss.",
     "private": false,
     "url": "https://github.com/codeunion/social-wall",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "sinatra",
@@ -989,7 +989,7 @@
     "description": "Exercises to practice fundamental SQL queries and concepts. Uses SQLite3.",
     "private": true,
     "url": "https://github.com/codeunion/sql-queries",
-    "category": "exercises",
+    "category": "exercise",
     "tags": [
       "sql",
       "sqlite",
@@ -1010,7 +1010,7 @@
     "description": "Repository for SQL Workshop",
     "private": true,
     "url": "https://github.com/codeunion/sql-workshop",
-    "category": "guides",
+    "category": "guide",
     "tags": [
       "sql",
       "relational-databases",
@@ -1029,7 +1029,7 @@
     "description": "write about interesting things that happen to you through your experiences with CodeUnion",
     "private": true,
     "url": "https://github.com/codeunion/student-logs",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -1045,7 +1045,7 @@
     "description": "Tools to make life as a coder 'slightly' more cooperative.",
     "private": true,
     "url": "https://github.com/codeunion/student-utils",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -1062,7 +1062,7 @@
     "description": "Soooooooooo super!",
     "private": false,
     "url": "https://github.com/codeunion/super_wall",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "rails"
@@ -1081,7 +1081,7 @@
     "description": "A symbolic calculator project in Ruby",
     "private": false,
     "url": "https://github.com/codeunion/symbolic-calculator",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "expression-tree",
@@ -1102,7 +1102,7 @@
     "description": "A Ruby program that displays various statistics about a piece of text",
     "private": true,
     "url": "https://github.com/codeunion/text-analysis",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "algorithms",
@@ -1122,7 +1122,7 @@
     "description": "The home base repository for Topics in CS",
     "private": true,
     "url": "https://github.com/codeunion/topics-in-cs",
-    "category": "guides",
+    "category": "guide",
     "tags": [
       "computer-science",
       "data-structures",
@@ -1144,7 +1144,7 @@
     "description": "Project to analyze tweets. Meant to integrate with text-analysis tool.",
     "private": true,
     "url": "https://github.com/codeunion/tweetalyzer",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "sinatra",
@@ -1165,7 +1165,7 @@
     "description": "Build a command line Twitter client",
     "private": true,
     "url": "https://github.com/codeunion/twitter-client",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "web-apis",
@@ -1185,7 +1185,7 @@
     "description": "A basic URL shortener project written with Rails.",
     "private": true,
     "url": "https://github.com/codeunion/url-shortener",
-    "category": "projects",
+    "category": "project",
     "tags": [
       "ruby",
       "rails",
@@ -1205,7 +1205,7 @@
     "description": "Various scripts, utilities, and other doodads",
     "private": true,
     "url": "https://github.com/codeunion/utils",
-    "category": "tools",
+    "category": "tool",
     "tags": [
 
     ],
@@ -1221,7 +1221,7 @@
     "description": "Exercises in fundamental programming concepts using Ruby. Designed to hone skills through practice and repetition.",
     "private": true,
     "url": "https://github.com/codeunion/web-fundamentals-weekly-katas",
-    "category": "exercises",
+    "category": "exercise",
     "tags": [
       "ruby",
       "algorithms",
@@ -1243,7 +1243,7 @@
     "description": "Project briefs, one page summaries and background research",
     "private": true,
     "url": "https://github.com/codeunion/workbench",
-    "category": "docs",
+    "category": "doc",
     "tags": [
 
     ],
@@ -1259,7 +1259,7 @@
     "description": "Example Craigslist clone app.",
     "private": true,
     "url": "https://github.com/codeunion/yardsale",
-    "category": "examples",
+    "category": "example",
     "tags": [
       "ruby",
       "sinatra",
