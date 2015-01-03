@@ -148,6 +148,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    yard (0.8.7.6)
 
 PLATFORMS
   ruby
@@ -164,3 +165,4 @@ DEPENDENCIES
   rspec-rails (= 3.1.0)
   spring
   unicorn
+  yard

@@ -14,6 +14,7 @@ group :development do
   gem 'spring'
   gem 'dotenv'
   gem 'foreman'
+  gem 'yard'
 end
 
 group :test do
