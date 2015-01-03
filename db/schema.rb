@@ -11,16 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102221958) do
+ActiveRecord::Schema.define(version: 20150103002212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "resources", force: true do |t|
-    t.json     "manifest",   null: false
+    t.json     "manifest",    null: false
     t.text     "readme"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "name"
+    t.text     "description"
+    t.string   "url"
+    t.string   "category"
   end
 
   create_table "search_results", force: true do |t|

@@ -4,12 +4,17 @@ class Resource < ActiveRecord::Base
   include PgSearch
 
   CATEGORIES = %w{ exercises projects examples }
+  RANK_BY_UNIQUE_WORDS_IN_DOCUMENT = 8
+  RANK_BY_MEAN_HARMONIC_DISTANCE   = 4
+
+  RANKING = RANK_BY_MEAN_HARMONIC_DISTANCE + RANK_BY_UNIQUE_WORDS_IN_DOCUMENT
 
   pg_search_scope :search_in_readme,
-                  against: :readme,
+                  against:  { name: 'A', description: 'B', readme: 'C' },
                   using: {
                     tsearch: {
                       dictionary: "english",
+                      normalization: RANKING,
                       any_word: true,
                       highlight: {
                         start_sel: "<match>",

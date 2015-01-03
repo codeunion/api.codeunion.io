@@ -14,7 +14,12 @@ resources = manifests.map do |manifest|
 
   readme_text = File.exists?(readme_file) ? File.read(readme_file) : nil
 
-  { manifest: manifest, readme: readme_text }
+  { name: manifest['name'],
+    url: manifest['url'],
+    description: manifest['description'],
+    category: manifest['category'],
+    manifest: manifest,
+    readme: readme_text }
 end
 
 Resource.create(resources)
