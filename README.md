@@ -39,9 +39,18 @@ The base URL is `https://api.codeunion.com/v1/`.
 
 As of now no authentication is required.
 
-## Endpoints
+### Rake commands
 
-### Search resources
+#### resources:create[category,github-url]
+
+```
+# Creates or updates a given resource
+bin/rake resources:create[exercise,https://github.com/codeunion/rpm-calculator]
+```
+
+### Endpoints
+
+#### Search resources
 
 Find resources whose text contains a particular query
 
@@ -49,20 +58,20 @@ Find resources whose text contains a particular query
 GET /v1/search?:query_params
 ```
 
-#### Parameters
+##### Parameters
 
 Name | Type | Description | Required
 -----|------|-------------|---------
 query | string | Search query | true
 category | string | See supported categories in `app/models/resource.rb` | false
 
-#### Request
+##### Request
 
 ```
 GET /v1/search?category=examples&query=REST%20API
 ```
 
-#### Response
+##### Response
 
 ```json
 [
