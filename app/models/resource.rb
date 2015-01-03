@@ -1,9 +1,12 @@
 class Resource < ActiveRecord::Base
+  CATEGORIES = %w{ exercise project example }
+
   has_many :search_results
 
-  include PgSearch
+  validates :name, { :presence => true, :uniqueness => true }
+  validates :category, { :presence => true, :inclusion => { in: CATEGORIES } }
 
-  CATEGORIES = %w{ exercise project example }
+  include PgSearch
   RANK_BY_UNIQUE_WORDS_IN_DOCUMENT = 8
   RANK_BY_MEAN_HARMONIC_DISTANCE   = 4
 
@@ -53,6 +56,7 @@ class Resource < ActiveRecord::Base
 
     # If a highlighted match was found, add it to the JSON
     json["excerpt"] = respond_to?(:pg_highlight) ? pg_highlight : ""
+    json["tags"] ||= []
 
     return json
   end

@@ -157,7 +157,7 @@
     "name": "codeunion-client",
     "description": "The CodeUnion Command-Line Tool",
     "private": true,
-    "url": "https://github.com/codeunion",
+    "url": "https://github.com/codeunion/codeunion-client",
     "category": "tool",
     "tags": [
 
