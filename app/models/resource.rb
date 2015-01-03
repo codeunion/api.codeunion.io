@@ -26,6 +26,7 @@ class Resource < ActiveRecord::Base
                     }
                   }
 
+
   def self.search(options = {})
     category = options.fetch(:category, nil)
     query    = options.fetch(:query, nil)
@@ -67,5 +68,31 @@ class Resource < ActiveRecord::Base
 
   def self.valid_category?(category)
     CATEGORIES.include? category.downcase
+  end
+
+  # Idempotently creates or updates the database given a resource manifest.
+  # @note *does not* verify the object persisted safely. Use `valid?` and `errors` for that.
+  #
+  # @param manifest [Hash] The manifest to persist
+  # @return [Resource] the updated or created manifest.
+  def self.create_or_update_from_manifest(manifest)
+    data = convert_manifest_to_resource_schema(manifest)
+    resource = find_by(:name => data[:name])
+
+    if resource
+      resource.update(data)
+    else
+      resource = create(data)
+    end
+
+    resource
+  end
+
+  def self.convert_manifest_to_resource_schema(manifest)
+    resource = manifest.dup
+    resource.delete(:tags)
+    manifest.delete(:readme)
+    resource[:manifest] = manifest
+    resource
   end
 end

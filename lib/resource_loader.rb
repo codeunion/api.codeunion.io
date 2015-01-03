@@ -2,23 +2,61 @@ require 'faraday'
 require 'reverse_markdown'
 require 'nokogiri'
 
-module ResourceLoader
+# Loads a resource into a resource storage container.
+#
+#   > loader = ResourceLoader.new("https://github.com/codeunion/rpn-calculator", "project", Resource)
+#   => <ResourceLoader @url="...", @category="proejct", ...>
+#   > loader.retrieve_and_store
+#   => nil
+#   > loader.resource
+#   => <Resource id: 10, category: "project", ...>
+class ResourceLoader
 
+  # @return [Resource, nil] Resource retrieved by the loader
+  attr_reader :resource
+
+  # @param url [String] URL of resource to load
+  # @param category [String] Category the resource belongs to
+  # @param resource_storage [#create_or_update_from_manifest]
+  #   - Must return an {https://github.com/rails/rails/tree/master/activemodel ActiveModel}.
+  #   - See {Resource.create_or_update_from_manifest}
+  def initialize(url, category, resource_storage)
+    @url = url
+    @category = category
+    @resource_storage = resource_storage
+  end
+
+  # Retrieves the project from the web and stores it.
+  # @return [nil]
+  def retrieve_and_store
+    @resource = @resource_storage.create_or_update_from_manifest(manifest)
+    nil
+  end
+
+  private
+
+  # Loads a publicly available resource and returns a resource manifest
+  # @return [Hash] A resource manifest
+  def manifest
+    response = Faraday.get(@url)
+    fail(ResourceNotPublic, @url) unless response.status == 200
+    GithubRepositoryResource.new(@url, @category, response.body).to_h
+  end
+
+  # Loads a resource from a URL, stores it, and logs output describing what
+  # happened.
   class CLI
+    # (see ResourceLoader#initialize)
     def initialize(url, category, resource_storage)
-      @loader = Loader.new(url, category)
-      @resource_storage = resource_storage
+      @loader = ResourceLoader.new(url, category, resource_storage)
     end
 
+    # Loads resource and returns output about whether it worked.
+    # @return [String] Output from the creation of the resource.
     def run
-      data = @loader.load
-      resource = @resource_storage.find_by(:name => data[:name])
+      @loader.retrieve_and_store
+      resource = @loader.resource
 
-      if resource
-        resource.update(data)
-      else
-        resource = @resource_storage.create(data)
-      end
 
       output = []
       if resource.valid?
@@ -31,60 +69,75 @@ module ResourceLoader
       end
       output.join("\n")
     end
+
+    private
+
   end
 
-  class Loader
-    def initialize(url, category)
+  # Converts github repositories into a resource manifest
+  class GithubRepositoryResource
+    # @param url [String] URL the resource lived at.
+    # @param category [String] Which category the resource belongs to
+    # @param body [String] HTML of a github repository project home page
+    def initialize(url, category, body)
       @url = url
       @category = category
+      @body = body
     end
 
-    def load
-      resource = PublicGithubResource.new(@url).to_h
-      resource[:category] = @category
-      manifest = resource.dup
-      resource.delete(:tags)
-      manifest.delete(:readme)
-      resource[:manifest] = manifest
-      resource
+    def to_h
+      manifest
     end
-  end
 
-  class PublicGithubResource
-    def initialize(url)
-      response = Faraday.get(url)
-      fail(ResourceNotPublic, url) unless response.status == 200
-      doc = Nokogiri::HTML(response.body)
-      readme = ReverseMarkdown.convert(doc.at_css('#readme > article'), { :unknown_tags => :bypass, :github_flavored => true })
-      name = doc.at_css('.js-current-repository').text.strip
-      description_node = doc.at_css('.repository-description')
-
-      if description_node
-        description = description_node.text.strip
-      end
-      tag_nodes = doc.at_xpath('//a[@id="user-content-topics-covered"]/../following-sibling::*')
-
-      tags = []
-      if tag_nodes
-        tags = tag_nodes.css('li').map do |tag_node, b|
-          tag_node.text.downcase.gsub(" ", "-")
-        end
-      end
-
-
-      resource = {
+    # Parses the github project website into a resource manifest
+    # @return [Hash] - resource manifest.
+    def manifest
+      @manifest ||= {
         :url => url,
         :name => name,
+        :category => category,
         :description => description,
         :tags => tags,
         :readme => readme,
       }
-
-      @data = resource
     end
 
-    def to_h
-      @data
+    alias_method :to_h, :manifest
+
+    private
+
+    attr_reader :category, :url
+
+    def readme
+      @readme ||= ReverseMarkdown.convert(doc.at_css('#readme > article'), { :unknown_tags => :bypass, :github_flavored => true })
+    end
+
+    def doc
+      @doc ||= Nokogiri::HTML(@body)
+    end
+
+    def name
+      @name ||= doc.at_css('.js-current-repository').text.strip
+    end
+
+    def description
+      return @description if @description
+      description_node = doc.at_css('.repository-description')
+      @description = description_node ? description_node.text.strip : ""
+    end
+
+    def tags
+      return @tags if @tags
+      # Finds the h4 element with the topics-covered text, then finds it's
+      # neighboring unordered list.
+      tag_nodes = doc.at_xpath('//a[@id="user-content-topics-covered"]/../following-sibling::*')
+
+      @tags = []
+      if tag_nodes
+        @tags = tag_nodes.css('li').map do |tag_node, b|
+          tag_node.text.downcase.gsub(" ", "-")
+        end
+      end
     end
   end
 
