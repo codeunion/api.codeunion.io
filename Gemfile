@@ -14,6 +14,7 @@ group :development do
   gem 'spring'
   gem 'dotenv'
   gem 'foreman'
+  gem 'rack-cors', :require => 'rack/cors'
 end
 
 group :test do
