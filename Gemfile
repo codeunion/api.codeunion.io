@@ -10,10 +10,16 @@ gem 'unicorn'
 gem 'pg'
 gem 'pg_search', git: 'https://github.com/openspectrum/pg_search.git', ref: '72773'
 
+
+gem 'nokogiri', '1.6.5'
+gem 'faraday',  '0.9.0'
+gem 'reverse_markdown', '0.6.0'
+
 group :development do
   gem 'spring'
   gem 'dotenv'
   gem 'foreman'
+  gem 'yard'
 end
 
 group :test do
