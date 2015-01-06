@@ -4,12 +4,12 @@ ruby ENV.fetch('CUSTOM_RUBY_VERSION') { '2.0.0' }
 
 gem 'rails', '4.2.0.rc2'
 gem 'rails-api'
+gem 'rack-cors', :require => 'rack/cors'
 
 gem 'unicorn'
 
 gem 'pg'
 gem 'pg_search', git: 'https://github.com/openspectrum/pg_search.git', ref: '72773'
-
 
 gem 'nokogiri', '1.6.5'
 gem 'faraday',  '0.9.0'
@@ -20,7 +20,6 @@ group :development do
   gem 'dotenv'
   gem 'foreman'
   gem 'yard'
-  gem 'rack-cors', :require => 'rack/cors'
 end
 
 group :test do
