@@ -20,6 +20,7 @@ group :development do
   gem 'dotenv'
   gem 'foreman'
   gem 'yard'
+  gem 'rack-cors', :require => 'rack/cors'
 end
 
 group :test do
