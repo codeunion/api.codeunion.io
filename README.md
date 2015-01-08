@@ -18,6 +18,29 @@ $ bin/foreman start
 Your Ruby version is 2.1.5, but your Gemfile specified 2.0.0
 ```
 
+## Deploying
+
+Assuming access the following heroku apps:
+
+* Production: `git@heroku.com:api-codeunion-io.git`
+* Staging: `git@heroku.com:api-codeunion-io-staging.git`
+
+We deploy by:
+
+* Pushing to the appropriate remote (staging first! Then production)
+* Running any migrations
+* Smoke-testing
+
+An example terminal session is as follows:
+
+```shell-session
+$ git push staging
+...
+$ heroku run bin/rake db:migrate --app api-codeunion-io-staging
+...
+$ curl http://api-codeunion-io-staging.herokuapp.com/v1/search?query=JavaScript
+```
+
 ### Ruby Version
 
 Heroku recommends we specify the version of Ruby to use in our
