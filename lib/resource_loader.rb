@@ -33,8 +33,6 @@ class ResourceLoader
     nil
   end
 
-  private
-
   # Loads a publicly available resource and returns a resource manifest
   # @return [Hash] A resource manifest
   def manifest
@@ -69,9 +67,6 @@ class ResourceLoader
       end
       output.join("\n")
     end
-
-    private
-
   end
 
   # Converts github repositories into a resource manifest
@@ -105,7 +100,6 @@ class ResourceLoader
     alias_method :to_h, :manifest
 
     private
-
     attr_reader :category, :url
 
     def readme
