@@ -15,6 +15,8 @@ gem 'nokogiri', '1.6.5'
 gem 'faraday',  '0.9.0'
 gem 'reverse_markdown', '0.6.0'
 
+gem 'octokit', '3.7.0'
+
 group :development do
   gem 'spring'
   gem 'dotenv'
