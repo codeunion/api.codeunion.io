@@ -38,7 +38,7 @@ class ResourceLoader
   #   URL of a resource to load
   # @param resource_storage [#create_or_update_from_manifest]
   #   Must return an
-  #   {https://github.com/rails/rails/tree/master/activemodel ActiveModel}.
+  #   {https://github.com/rails/rails/tree/master/activemodel ActiveModel}
   #   instance.
   # @param client [OctoKit::Client]
   #   Must return an
@@ -114,7 +114,7 @@ class ResourceLoader
   # Converts github repositories into a resource manifest
   class GithubRepositoryResource
     # @param full_repo_name [String]
-    #   The org-prefixed name of the repository
+    #   The org-prefixed name of the repository, e.g., +'codeunion/Wall-B'+.
     # @param client [Octokit::Client]
     #   An {https://github.com/octokit/octokit.rb/tree/master OctoKit::Client}
     #   instance used to make calls to the GitHub API.
