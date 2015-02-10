@@ -1,23 +1,56 @@
+require 'dotenv/tasks'
+require 'octokit'
 require 'resource_loader'
 require 'manifest_loader'
 
 namespace :resources do
-  desc "Creates a project, example, or resource"
-  task :create, [:category, :url] => :environment  do |t, arguments|
-    output = ResourceLoader::CLI.new(arguments[:url], arguments[:category], Resource).run
-    puts output
+  def github_public_client
+    unless ENV.key?('GITHUB_CLIENT_ID') && ENV.key?('GITHUB_CLIENT_SECRET')
+      puts 'Please set GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET' \
+            ' environment variables.'
+      exit 1
+    end
+
+    @client ||= Octokit::Client.new(
+      client_id:     ENV['GITHUB_CLIENT_ID'],
+      client_secret: ENV['GITHUB_CLIENT_SECRET']
+    )
   end
 
-  desc "Refreshes all the resources in the manifest and database"
-  task :refresh => :environment do
-    extras = Resource.all.map(&:as_json)
-    loader = ManifestLoader.new(extra_manifests: extras)
-    loader.manifests.each do |m|
-      begin
-        puts "Loading #{m['url']}"
-        ResourceLoader.new(m['url'], m['category'], Resource).retrieve_and_store
-      rescue ResourceLoader::ResourceNotPublic => e
-        puts "#{m['url']} was not a public resource."
+  def with_resource_errors(object)
+    yield
+  rescue ResourceLoader::ResourceNotPublic
+    puts "[Error] #{object.url} is not public"
+  rescue ResourceLoader::ManifestMissing
+    puts "[Error] #{object.url} has no manifest"
+  rescue ResourceLoader::ResourceNotFound
+    puts "[Error] #{object.url} no longer exists"
+  end
+
+  desc 'Creates a project, example, or resource'
+  task :create, [:url] => [:environment, :dotenv]  do |_, arguments|
+    cli = ResourceLoader::CLI.new(
+      arguments[:url],
+      Resource,
+      github_public_client
+    )
+
+    with_resource_errors(cli) do
+      puts cli.run
+    end
+  end
+
+  desc 'Refreshes all the resources in the database'
+  task refresh: [:environment, :dotenv] do
+    Resource.all.each do |resource|
+      loader = ResourceLoader.new(
+        resource.url,
+        Resource,
+        github_public_client
+      )
+
+      with_resource_errors(loader) do
+        loader.rerieve_and_store
       end
     end
   end
