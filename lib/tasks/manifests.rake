@@ -1,8 +1,6 @@
 require 'dotenv/tasks'
 require 'manifest_uploader'
 
-DATA_DIR = File.expand_path('../../../db/init-data', __FILE__)
-
 namespace :manifests do
   desc 'Creates manifest files on the appropriate GitHub repositories'
   task :upload => [:environment, :dotenv] do
