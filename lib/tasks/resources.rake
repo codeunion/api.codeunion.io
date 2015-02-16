@@ -1,7 +1,6 @@
 require 'dotenv/tasks'
 require 'octokit'
 require 'resource_loader'
-require 'manifest_loader'
 
 namespace :resources do
   def github_public_client
