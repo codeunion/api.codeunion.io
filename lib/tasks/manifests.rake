@@ -23,11 +23,11 @@ namespace :manifests do
 
     manifests = JSON.load(manifest_stream(args[:manifest_file]))
 
-    client = Octokit::Client.new({
+    client = Octokit::Client.new(
       access_token:  ENV["GITHUB_ACCESS_TOKEN"],
       auto_paginate: true,
       per_page:      100
-    })
+    )
 
     repo_names = client.org_repos("codeunion").map(&:name)
 

@@ -3,8 +3,8 @@ class Resource < ActiveRecord::Base
 
   has_many :search_results
 
-  validates :name, { presence: true, uniqueness: true }
-  validates :category, { presence: true, inclusion: { in: CATEGORIES } }
+  validates :name, presence: true, uniqueness: true
+  validates :category, presence: true, inclusion: { in: CATEGORIES }
 
   include PgSearch
   RANK_BY_UNIQUE_WORDS_IN_DOCUMENT = 8
@@ -12,7 +12,7 @@ class Resource < ActiveRecord::Base
 
   RANKING = RANK_BY_MEAN_HARMONIC_DISTANCE + RANK_BY_UNIQUE_WORDS_IN_DOCUMENT
 
-  pg_search_scope(:search_in_readme, {
+  pg_search_scope(:search_in_readme,
     against: { name: "A", description: "B", readme: "C" },
     using: {
       tsearch: {
@@ -25,7 +25,7 @@ class Resource < ActiveRecord::Base
         }
       }
     }
-  })
+  )
 
 
   def self.search(options = {})
@@ -43,10 +43,7 @@ class Resource < ActiveRecord::Base
     end
 
     resources.each_with_index do |resource, rank|
-      resource.search_results.create({
-        query: query,
-        rank: rank
-      })
+      resource.search_results.create(query: query, rank: rank)
     end
 
     return resources
@@ -64,7 +61,7 @@ class Resource < ActiveRecord::Base
   end
 
   def has_search_results_for?(query)
-    search_results.where({ query: query }).present?
+    search_results.where(query: query).present?
   end
 
   def self.valid_category?(category)
