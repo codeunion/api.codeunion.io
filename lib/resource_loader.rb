@@ -8,7 +8,7 @@ require 'multi_json'
 #   > resource_url = "https://github.com/codeunion/rpn-calculator"
 #   >
 #   > loader = ResourceLoader.new(resource_url, Resource, client)
-#   => <ResourceLoader @url="...", @category="proejct", ...>
+#   => <ResourceLoader @url="...", @resource_storage=Resource, ...>
 #   > loader.retrieve_and_store
 #   => nil
 #   > loader.resource
