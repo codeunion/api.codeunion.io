@@ -15,7 +15,7 @@ gem 'octokit', '3.7.0'
 
 group :development do
   gem 'spring'
-  gem 'dotenv'
+  gem 'dotenv-rails'
   gem 'foreman'
   gem 'yard'
 end
