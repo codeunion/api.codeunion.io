@@ -5,8 +5,8 @@ require 'resource_loader'
 namespace :resources do
   def github_public_client
     unless ENV.key?('GITHUB_CLIENT_ID') && ENV.key?('GITHUB_CLIENT_SECRET')
-      puts 'Please set GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET' \
-            ' environment variables.'
+      puts 'Please set GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET ' \
+           'environment variables.'
       exit 1
     end
 
