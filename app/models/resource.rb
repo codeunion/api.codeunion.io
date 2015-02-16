@@ -1,5 +1,5 @@
 class Resource < ActiveRecord::Base
-  CATEGORIES = %w{ exercise project example }
+  CATEGORIES = %w( exercise project example )
 
   has_many :search_results
 
