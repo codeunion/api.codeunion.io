@@ -4,7 +4,7 @@ ruby ENV.fetch("CUSTOM_RUBY_VERSION") { "2.0.0" }
 
 gem "rails", "4.2.0.rc2"
 gem "rails-api"
-gem "rack-cors", :require => "rack/cors"
+gem "rack-cors", require: "rack/cors"
 
 gem "unicorn"
 

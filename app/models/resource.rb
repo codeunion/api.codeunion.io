@@ -3,8 +3,8 @@ class Resource < ActiveRecord::Base
 
   has_many :search_results
 
-  validates :name, { :presence => true, :uniqueness => true }
-  validates :category, { :presence => true, :inclusion => { in: CATEGORIES } }
+  validates :name, { presence: true, uniqueness: true }
+  validates :category, { presence: true, inclusion: { in: CATEGORIES } }
 
   include PgSearch
   RANK_BY_UNIQUE_WORDS_IN_DOCUMENT = 8
@@ -63,7 +63,7 @@ class Resource < ActiveRecord::Base
   end
 
   def has_search_results_for?(query)
-    search_results.where({ :query => query }).present?
+    search_results.where({ query: query }).present?
   end
 
   def self.valid_category?(category)
@@ -77,7 +77,7 @@ class Resource < ActiveRecord::Base
   # @return [Resource] the updated or created manifest.
   def self.create_or_update_from_manifest(manifest)
     data = convert_manifest_to_resource_schema(manifest)
-    resource = find_by(:name => data[:name])
+    resource = find_by(name: data[:name])
 
     if resource
       resource.update(data)
