@@ -14,9 +14,15 @@ gem "pg_search", git: "https://github.com/openspectrum/pg_search.git", ref: "727
 gem "octokit", "3.7.0"
 
 group :development do
+  # Infrastructure
   gem "spring"
-  gem "dotenv-rails"
   gem "foreman"
+
+  # Environment Setup
+  gem "dotenv-rails"
+
+  # Style + Documentation
+  gem "rubocop"
   gem "yard"
 end
 
