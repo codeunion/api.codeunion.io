@@ -41,7 +41,7 @@ namespace :resources do
 
   desc 'Refreshes all the resources in the database'
   task refresh: [:environment, :dotenv] do
-    Resource.all.each do |resource|
+    Resource.find_each do |resource|
       loader = ResourceLoader.new(
         resource.url,
         Resource,
