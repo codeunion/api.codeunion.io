@@ -23,6 +23,9 @@ namespace :resources do
     puts "[Error] #{object.url} has no manifest"
   rescue ResourceLoader::ResourceNotFound
     puts "[Error] #{object.url} no longer exists"
+  rescue ResourceLoader::ResourceNotIndexable
+    puts "[Error] #{object.url} cannot be indexed - are you sure you meant " \
+         "to add it?"
   end
 
   desc 'Creates a project, example, or resource'

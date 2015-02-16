@@ -26,6 +26,9 @@ class ResourceLoader
   # Raised when repository has no manifest file
   class ManifestMissing < LoaderError; end
 
+  # Raised when resource shouldn't be indexed
+  class ResourceNotIndexable < LoaderError; end
+
   # @return [Resource, nil]
   #   Resource retrieved by the loader
   attr_reader :resource
@@ -128,9 +131,10 @@ class ResourceLoader
     # @return [Hash]
     #   A resource manifest
     def manifest
-      fail ResourceNotFound,  "#{full_repo_name} does not exist"  unless repo_exists?
-      fail ResourceNotPublic, "#{full_repo_name} is not public"   unless public?
-      fail ManifestMissing,   "#{full_repo_name} has no manifest" unless manifest_exists?
+      fail ResourceNotFound,     "#{full_repo_name} does not exist"    unless repo_exists?
+      fail ResourceNotPublic,    "#{full_repo_name} is not public"     unless public?
+      fail ManifestMissing,      "#{full_repo_name} has no manifest"   unless manifest_exists?
+      fail ResourceNotIndexable, "#{full_repo_name} cannot be indexed" unless indexable?
 
       @manifest ||= {
         url:         url,
@@ -168,6 +172,14 @@ class ResourceLoader
       @_manifest_exists = client.contents(full_repo_name).any? do |f|
         f.path == 'manifest.json'
       end
+    end
+
+    # @return [Boolean]
+    #   Returns +true+ if the repository is indexable and +false+ otherwise.
+    def indexable?
+      return false unless manifest_exists?
+
+      %w(project example exercise).include?(category)
     end
 
     private
