@@ -1,4 +1,3 @@
-require 'dotenv/tasks'
 require 'octokit'
 require 'resource_loader'
 
@@ -27,7 +26,7 @@ namespace :resources do
   end
 
   desc 'Creates a project, example, or resource'
-  task :create, [:url] => [:environment, :dotenv]  do |_, arguments|
+  task :create, [:url] => :environment do |_, arguments|
     cli = ResourceLoader::CLI.new(
       arguments[:url],
       Resource,
@@ -40,7 +39,7 @@ namespace :resources do
   end
 
   desc 'Refreshes all the resources in the database'
-  task refresh: [:environment, :dotenv] do
+  task refresh: :environment do
     Resource.find_each do |resource|
       loader = ResourceLoader.new(
         resource.url,

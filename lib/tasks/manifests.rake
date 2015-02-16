@@ -1,4 +1,3 @@
-require 'dotenv/tasks'
 require 'manifest_uploader'
 
 namespace :manifests do
@@ -16,7 +15,7 @@ namespace :manifests do
   end
 
   desc 'Creates manifest files on the appropriate GitHub repositories'
-  task :upload, [:manifest_file] => [:environment, :dotenv] do |t, args|
+  task :upload, [:manifest_file] => :environment do |t, args|
     unless ENV.key?('GITHUB_ACCESS_TOKEN')
       puts 'Please set GITHUB_ACCESS_TOKEN environment variable.'
       exit 1
