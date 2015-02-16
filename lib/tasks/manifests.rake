@@ -15,7 +15,7 @@ namespace :manifests do
   end
 
   desc "Creates manifest files on the appropriate GitHub repositories"
-  task :upload, [:manifest_file] => :environment do |t, args|
+  task :upload, [:manifest_file] => :environment do |_task, args|
     unless ENV.key?("GITHUB_ACCESS_TOKEN")
       puts "Please set GITHUB_ACCESS_TOKEN environment variable."
       exit 1

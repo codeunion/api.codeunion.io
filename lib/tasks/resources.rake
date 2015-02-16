@@ -29,7 +29,7 @@ namespace :resources do
   end
 
   desc "Creates a project, example, or resource"
-  task :create, [:url] => :environment do |_, arguments|
+  task :create, [:url] => :environment do |_task, arguments|
     cli = ResourceLoader::CLI.new(
       arguments[:url],
       Resource,
