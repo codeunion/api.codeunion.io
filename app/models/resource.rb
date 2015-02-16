@@ -46,18 +46,15 @@ class Resource < ActiveRecord::Base
       resource.search_results.create(query: query, rank: rank)
     end
 
-    return resources
+    resources
   end
 
   # This is a hack. Better to use something like ActiveModel::Serializer
   def as_json(options = {})
-    json = self.manifest
-
-    # If a highlighted match was found, add it to the JSON
-    json["excerpt"] = respond_to?(:pg_highlight) ? pg_highlight : ""
-    json["tags"] ||= []
-
-    return json
+    self.manifest.tap do |json|
+      json["excerpt"] = respond_to?(:pg_highlight) ? pg_highlight : ""
+      json["tags"] ||= []
+    end
   end
 
   def has_search_results_for?(query)
