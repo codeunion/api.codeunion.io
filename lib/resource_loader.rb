@@ -1,29 +1,55 @@
-require 'faraday'
-require 'reverse_markdown'
-require 'nokogiri'
+require 'uri'
+require 'base64'
+require 'multi_json'
 
 # Loads a resource into a resource storage container.
 #
-#   > loader = ResourceLoader.new("https://github.com/codeunion/rpn-calculator", "project", Resource)
-#   => <ResourceLoader @url="...", @category="proejct", ...>
+#   > client = Octokit::Client.new(credentials)
+#   > resource_url = "https://github.com/codeunion/rpn-calculator"
+#   >
+#   > loader = ResourceLoader.new(resource_url, Resource, client)
+#   => <ResourceLoader @url="...", @resource_storage=Resource, ...>
 #   > loader.retrieve_and_store
 #   => nil
 #   > loader.resource
 #   => <Resource id: 10, category: "project", ...>
 class ResourceLoader
+  # Generic base class for loader-related errors
+  class LoaderError < StandardError; end
 
-  # @return [Resource, nil] Resource retrieved by the loader
+  # Raised when a given resource is not publicly accessible
+  class ResourceNotPublic < LoaderError; end
+
+  # Raised when a given resource doesn't exist or is otherwise inaccessible
+  class ResourceNotFound < LoaderError; end
+
+  # Raised when repository has no manifest file
+  class ManifestMissing < LoaderError; end
+
+  # @return [Resource, nil]
+  #   Resource retrieved by the loader
   attr_reader :resource
 
-  # @param url [String] URL of resource to load
-  # @param category [String] Category the resource belongs to
+  # @return [String]
+  #   Returns the URL for the given resource
+  attr_reader :url
+
+  # @param url [String]
+  #   URL of a resource to load
   # @param resource_storage [#create_or_update_from_manifest]
-  #   - Must return an {https://github.com/rails/rails/tree/master/activemodel ActiveModel}.
-  #   - See {Resource.create_or_update_from_manifest}
-  def initialize(url, category, resource_storage)
+  #   Must return an
+  #   {https://github.com/rails/rails/tree/master/activemodel ActiveModel}
+  #   instance.
+  # @param client [OctoKit::Client]
+  #   Must return an
+  #   {https://github.com/octokit/octokit.rb/tree/master OctoKit::Client}
+  #   instance.
+  #
+  # See {Resource.create_or_update_from_manifest}.
+  def initialize(url, resource_storage, client)
     @url = url
-    @category = category
     @resource_storage = resource_storage
+    @client = client
   end
 
   # Retrieves the project from the web and stores it.
@@ -34,27 +60,39 @@ class ResourceLoader
   end
 
   # Loads a publicly available resource and returns a resource manifest
-  # @return [Hash] A resource manifest
+  # @return [Hash]
+  #  A resource manifest
   def manifest
-    response = Faraday.get(@url)
-    fail(ResourceNotPublic, @url) unless response.status == 200
-    GithubRepositoryResource.new(@url, @category, response.body).to_h
+    repo_name = url_path[0] == '/' ? url_path[1..-1] : url_path
+
+    GithubRepositoryResource.new(repo_name, @client).to_h
+  end
+
+  private
+
+  def url_path
+    @url_path ||= URI.parse(url).path
   end
 
   # Loads a resource from a URL, stores it, and logs output describing what
   # happened.
   class CLI
+    # @return [String]
+    #   Returns the URL for the given resource
+    attr_reader :url
+
     # (see ResourceLoader#initialize)
-    def initialize(url, category, resource_storage)
-      @loader = ResourceLoader.new(url, category, resource_storage)
+    def initialize(url, resource_storage, client)
+      @url = url
+      @loader = ResourceLoader.new(url, resource_storage, client)
     end
 
     # Loads resource and returns output about whether it worked.
-    # @return [String] Output from the creation of the resource.
+    # @return [String]
+    #   Output from the creation of the resource.
     def run
       @loader.retrieve_and_store
       resource = @loader.resource
-
 
       output = []
       if resource.valid?
@@ -67,74 +105,112 @@ class ResourceLoader
       end
       output.join("\n")
     end
+
+    def resource
+      @loader.resource
+    end
   end
 
   # Converts github repositories into a resource manifest
   class GithubRepositoryResource
-    # @param url [String] URL the resource lived at.
-    # @param category [String] Which category the resource belongs to
-    # @param body [String] HTML of a github repository project home page
-    def initialize(url, category, body)
-      @url = url
-      @category = category
-      @body = body
-    end
-
-    def to_h
-      manifest
+    # @param full_repo_name [String]
+    #   The org-prefixed name of the repository, e.g., +'codeunion/Wall-B'+.
+    # @param client [Octokit::Client]
+    #   An {https://github.com/octokit/octokit.rb/tree/master OctoKit::Client}
+    #   instance used to make calls to the GitHub API.
+    def initialize(full_repo_name, client)
+      @full_repo_name = full_repo_name
+      @org_name, @repo_name = full_repo_name.split('/')
+      @client = client
     end
 
     # Parses the github project website into a resource manifest
-    # @return [Hash] - resource manifest.
+    # @return [Hash]
+    #   A resource manifest
     def manifest
+      fail ResourceNotFound,  "#{full_repo_name} does not exist"  unless repo_exists?
+      fail ResourceNotPublic, "#{full_repo_name} is not public"   unless public?
+      fail ManifestMissing,   "#{full_repo_name} has no manifest" unless manifest_exists?
+
       @manifest ||= {
-        :url => url,
-        :name => name,
-        :category => category,
-        :description => description,
-        :tags => tags,
-        :readme => readme,
+        url:         url,
+        name:        name,
+        category:    category,
+        description: description,
+        tags:        tags,
+        readme:      readme
       }
     end
-
     alias_method :to_h, :manifest
 
-    private
-    attr_reader :category, :url
+    # @return [Boolean]
+    #   Returns +true+ if the resource repository exists (+false+ otherwise).
+    def repo_exists?
+      return @_repo_exists unless @_repo_exists.nil?
 
-    def readme
-      @readme ||= ReverseMarkdown.convert(doc.at_css('#readme > article'), { :unknown_tags => :bypass, :github_flavored => true })
+      @_repo_exists = client.repository?(full_repo_name)
     end
 
-    def doc
-      @doc ||= Nokogiri::HTML(@body)
+    # @return [Boolean]
+    #   Returns +true+ if the resource repository exists and is public (+false+
+    #   otherwise).
+    def public?
+      repo_exists? && !repo.private?
+    end
+
+    # @return [Boolean]
+    #   Returns +true+ if the resource repository exists and has a manifest
+    #   file (+false+ otherwise).
+    def manifest_exists?
+      return false unless repo_exists?
+      return @_manifest_exists unless @_manifest_exists.nil?
+
+      @_manifest_exists = client.contents(full_repo_name).any? do |f|
+        f.path == 'manifest.json'
+      end
+    end
+
+    private
+
+    attr_reader :full_repo_name, :org_name, :repo_name, :client
+
+    def repo
+      @_repo ||= client.repository(full_repo_name)
+    end
+
+    def readme
+      @_readme ||= content(client.readme(full_repo_name))
+    end
+
+    def github_manifest
+      @_github_manifest ||= MultiJson.load(
+        content(client.contents(full_repo_name, path: 'manifest.json')),
+        symbolize_keys: true
+      )
     end
 
     def name
-      @name ||= doc.at_css('.js-current-repository').text.strip
+      repo.name
     end
 
     def description
-      return @description if @description
-      description_node = doc.at_css('.repository-description')
-      @description = description_node ? description_node.text.strip : ""
+      repo.description
+    end
+
+    def url
+      repo.html_url
     end
 
     def tags
-      return @tags if @tags
-      # Finds the h4 element with the topics-covered text, then finds it's
-      # neighboring unordered list.
-      tag_nodes = doc.at_xpath('//a[@id="user-content-topics-covered"]/../following-sibling::*')
+      github_manifest[:tags]
+    end
 
-      @tags = []
-      if tag_nodes
-        @tags = tag_nodes.css('li').map do |tag_node, b|
-          tag_node.text.downcase.gsub(" ", "-")
-        end
-      end
+    def category
+      github_manifest[:category]
+    end
+
+    def content(resource)
+      Base64.decode64(resource.content)
     end
   end
-
-  # Raised when a given resource is not publicly accessible
-  class ResourceNotPublic < StandardError; end
 end
