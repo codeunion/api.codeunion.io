@@ -11,8 +11,9 @@ namespace :manifests do
       exit 1
     end
 
-    manifests_file = File.join(DATA_DIR, 'manifests.json')
-    manifests = JSON.load(File.read(manifests_file))
+    puts "Reading from STDIN..."
+
+    manifests = JSON.load(STDIN.read)
 
     client = Octokit::Client.new({
       access_token:  ENV['GITHUB_ACCESS_TOKEN'],
