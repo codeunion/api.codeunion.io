@@ -1,17 +1,17 @@
-require 'octokit'
-require 'resource_loader'
+require "octokit"
+require "resource_loader"
 
 namespace :resources do
   def github_public_client
-    unless ENV.key?('GITHUB_CLIENT_ID') && ENV.key?('GITHUB_CLIENT_SECRET')
-      puts 'Please set GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET ' \
-           'environment variables.'
+    unless ENV.key?("GITHUB_CLIENT_ID") && ENV.key?("GITHUB_CLIENT_SECRET")
+      puts "Please set GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET " \
+           "environment variables."
       exit 1
     end
 
     @client ||= Octokit::Client.new(
-      client_id:     ENV['GITHUB_CLIENT_ID'],
-      client_secret: ENV['GITHUB_CLIENT_SECRET']
+      client_id:     ENV["GITHUB_CLIENT_ID"],
+      client_secret: ENV["GITHUB_CLIENT_SECRET"]
     )
   end
 
@@ -28,7 +28,7 @@ namespace :resources do
          "to add it?"
   end
 
-  desc 'Creates a project, example, or resource'
+  desc "Creates a project, example, or resource"
   task :create, [:url] => :environment do |_, arguments|
     cli = ResourceLoader::CLI.new(
       arguments[:url],
@@ -41,7 +41,7 @@ namespace :resources do
     end
   end
 
-  desc 'Refreshes all the resources in the database'
+  desc "Refreshes all the resources in the database"
   task refresh: :environment do
     Resource.find_each do |resource|
       puts "Refreshing #{resource.name} from remote manifest..."

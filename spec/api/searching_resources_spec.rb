@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "Searching for Resources" do
   it "Stores search results for resources returned by the query" do

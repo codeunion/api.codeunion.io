@@ -1,5 +1,5 @@
-require 'uri'
-require 'json'
+require "uri"
+require "json"
 
 class ManifestUploader
   # @param client [Octokit::Client]
@@ -44,7 +44,7 @@ class ManifestUploader
   end
 
   def manifest_filename
-    @manifest_filename ||= options.fetch(:manifest_filename) { 'manifest.json' }
+    @manifest_filename ||= options.fetch(:manifest_filename) { "manifest.json" }
   end
 
   def manifest_content
@@ -52,7 +52,7 @@ class ManifestUploader
   end
 
   def repo_name
-    URI.parse(manifest['url']).path[1..-1]
+    URI.parse(manifest["url"]).path[1..-1]
   end
 
   def repo_manifest

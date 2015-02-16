@@ -1,4 +1,4 @@
-require 'manifest_uploader'
+require "manifest_uploader"
 
 namespace :manifests do
   def manifest_stream(manifest_file)
@@ -14,17 +14,17 @@ namespace :manifests do
     end
   end
 
-  desc 'Creates manifest files on the appropriate GitHub repositories'
+  desc "Creates manifest files on the appropriate GitHub repositories"
   task :upload, [:manifest_file] => :environment do |t, args|
-    unless ENV.key?('GITHUB_ACCESS_TOKEN')
-      puts 'Please set GITHUB_ACCESS_TOKEN environment variable.'
+    unless ENV.key?("GITHUB_ACCESS_TOKEN")
+      puts "Please set GITHUB_ACCESS_TOKEN environment variable."
       exit 1
     end
 
     manifests = JSON.load(manifest_stream(args[:manifest_file]))
 
     client = Octokit::Client.new({
-      access_token:  ENV['GITHUB_ACCESS_TOKEN'],
+      access_token:  ENV["GITHUB_ACCESS_TOKEN"],
       auto_paginate: true,
       per_page:      100
     })
@@ -33,7 +33,7 @@ namespace :manifests do
 
     options = { only_fields: %w(category tags notes) }
 
-    manifests.reject { |m| !repo_names.include?(m['name']) }.each do |manifest|
+    manifests.reject { |m| !repo_names.include?(m["name"]) }.each do |manifest|
       puts "Uploading manifest to #{manifest['name']}..."
       ManifestUploader.new(client, manifest, options).run
     end
