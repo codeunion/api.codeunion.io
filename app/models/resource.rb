@@ -12,19 +12,20 @@ class Resource < ActiveRecord::Base
 
   RANKING = RANK_BY_MEAN_HARMONIC_DISTANCE + RANK_BY_UNIQUE_WORDS_IN_DOCUMENT
 
-  pg_search_scope :search_in_readme,
-                  against:  { name: "A", description: "B", readme: "C" },
-                  using: {
-                    tsearch: {
-                      dictionary: "english",
-                      normalization: RANKING,
-                      any_word: true,
-                      highlight: {
-                        start_sel: "<match>",
-                        stop_sel: "</match>"
-                      }
-                    }
-                  }
+  pg_search_scope(:search_in_readme, {
+    against: { name: "A", description: "B", readme: "C" },
+    using: {
+      tsearch: {
+        dictionary: "english",
+        normalization: RANKING,
+        any_word: true,
+        highlight: {
+          start_sel: "<match>",
+          stop_sel: "</match>"
+        }
+      }
+    }
+  })
 
 
   def self.search(options = {})
