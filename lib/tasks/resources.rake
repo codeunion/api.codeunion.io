@@ -41,6 +41,8 @@ namespace :resources do
   desc 'Refreshes all the resources in the database'
   task refresh: :environment do
     Resource.find_each do |resource|
+      puts "Refreshing #{resource.name} from remote manifest..."
+
       loader = ResourceLoader.new(
         resource.url,
         Resource,
@@ -48,7 +50,7 @@ namespace :resources do
       )
 
       with_resource_errors(loader) do
-        loader.rerieve_and_store
+        loader.retrieve_and_store
       end
     end
   end
