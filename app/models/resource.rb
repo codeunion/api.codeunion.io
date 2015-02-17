@@ -51,10 +51,10 @@ class Resource < ActiveRecord::Base
 
   # This is a hack. Better to use something like ActiveModel::Serializer
   def as_json(options = {})
-    self.manifest.tap do |json|
-      json["excerpt"] = respond_to?(:pg_highlight) ? pg_highlight : ""
-      json["tags"] ||= []
-    end
+    manifest.reverse_merge(
+      "excerpt" => respond_to?(:pg_highlight) ? pg_highlight : "",
+      "tags"    => []
+    )
   end
 
   def has_search_results_for?(query)
