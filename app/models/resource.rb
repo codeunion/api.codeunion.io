@@ -62,10 +62,6 @@ class Resource < ActiveRecord::Base
     )
   end
 
-  def has_search_results_for?(query)
-    search_results.where(query: query).present?
-  end
-
   def self.valid_category?(category)
     CATEGORIES.include? normalize_category(category)
   end
@@ -100,5 +96,9 @@ class Resource < ActiveRecord::Base
 
   def self.normalize_category(category)
     category.to_s.downcase.singularize
+  end
+
+  def has_search_results_for?(query)
+    search_results.where(query: query).present?
   end
 end
