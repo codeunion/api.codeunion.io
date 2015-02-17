@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby ENV.fetch('CUSTOM_RUBY_VERSION') { '2.0.0' }
+ruby File.read(".ruby-version").chomp
 
 gem 'rails', '4.2.0.rc2'
 gem 'rails-api'
