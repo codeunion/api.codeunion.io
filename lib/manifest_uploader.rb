@@ -1,6 +1,7 @@
-require 'uri'
-require 'json'
+require "uri"
+require "json"
 
+# Uploads the supplied manifest to the appropriate GitHub repository
 class ManifestUploader
   # @param client [Octokit::Client]
   #   An {https://github.com/octokit/octokit.rb Octokit::Client} instance
@@ -21,13 +22,16 @@ class ManifestUploader
   # remote manifest if it differs from the supplied manifest.
   def run
     if !repo_manifest_exists?
-      puts "Creating manifest for #{manifest['name']}"
+      Rails.logger.info "Creating manifest for #{manifest['name']}"
+
       create_repo_manifest!
     elsif repo_manifest_changed?
-      puts "Updating manifest for #{manifest['name']}"
+      Rails.logger.info "Updating manifest for #{manifest['name']}"
+
       update_repo_manifest!
     else
-      puts "No changes to manifest for #{manifest['name']}, skipping..."
+      Rails.logger.info "No changes to manifest for #{manifest['name']}, " \
+                        "skipping..."
     end
   end
 
@@ -44,7 +48,7 @@ class ManifestUploader
   end
 
   def manifest_filename
-    @manifest_filename ||= options.fetch(:manifest_filename) { 'manifest.json' }
+    @manifest_filename ||= options.fetch(:manifest_filename) { "manifest.json" }
   end
 
   def manifest_content
@@ -52,7 +56,7 @@ class ManifestUploader
   end
 
   def repo_name
-    URI.parse(manifest['url']).path[1..-1]
+    URI.parse(manifest["url"]).path[1..-1]
   end
 
   def repo_manifest

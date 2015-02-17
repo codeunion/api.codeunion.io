@@ -4,7 +4,7 @@ module V1
       render json: Resource.search(search_params)
     end
 
-  private
+    private
 
     def search_params
       params.slice(:category, :query)

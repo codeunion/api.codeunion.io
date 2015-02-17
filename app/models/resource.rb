@@ -1,10 +1,10 @@
 class Resource < ActiveRecord::Base
-  CATEGORIES = %w{ exercise project example }
+  CATEGORIES = %w( exercise project example )
 
   has_many :search_results
 
-  validates :name, { :presence => true, :uniqueness => true }
-  validates :category, { :presence => true, :inclusion => { in: CATEGORIES } }
+  validates :name, presence: true, uniqueness: true
+  validates :category, presence: true, inclusion: { in: CATEGORIES }
 
   include PgSearch
   RANK_BY_UNIQUE_WORDS_IN_DOCUMENT = 8
@@ -12,19 +12,20 @@ class Resource < ActiveRecord::Base
 
   RANKING = RANK_BY_MEAN_HARMONIC_DISTANCE + RANK_BY_UNIQUE_WORDS_IN_DOCUMENT
 
-  pg_search_scope :search_in_readme,
-                  against:  { name: 'A', description: 'B', readme: 'C' },
-                  using: {
-                    tsearch: {
-                      dictionary: "english",
-                      normalization: RANKING,
-                      any_word: true,
-                      highlight: {
-                        start_sel: "<match>",
-                        stop_sel: "</match>"
-                      }
-                    }
-                  }
+  pg_search_scope(:search_in_readme,
+    against: { name: "A", description: "B", readme: "C" },
+    using: {
+      tsearch: {
+        dictionary: "english",
+        normalization: RANKING,
+        any_word: true,
+        highlight: {
+          start_sel: "<match>",
+          stop_sel: "</match>"
+        }
+      }
+    }
+  )
 
   def self.in_category(category)
     return self if category.blank?
@@ -47,28 +48,22 @@ class Resource < ActiveRecord::Base
     end
 
     resources.each_with_index do |resource, rank|
-      resource.search_results.create({
-        query: query,
-        rank: rank
-      })
+      resource.search_results.create(query: query, rank: rank)
     end
 
-    return resources
+    resources
   end
 
   # This is a hack. Better to use something like ActiveModel::Serializer
-  def as_json(options = {})
-    json = self.manifest
-
-    # If a highlighted match was found, add it to the JSON
-    json["excerpt"] = respond_to?(:pg_highlight) ? pg_highlight : ""
-    json["tags"] ||= []
-
-    return json
+  def as_json(_options = {})
+    manifest.reverse_merge(
+      "excerpt" => respond_to?(:pg_highlight) ? pg_highlight : "",
+      "tags"    => []
+    )
   end
 
   def has_search_results_for?(query)
-    search_results.where({ :query => query }).present?
+    search_results.where(query: query).present?
   end
 
   def self.valid_category?(category)
@@ -76,13 +71,15 @@ class Resource < ActiveRecord::Base
   end
 
   # Idempotently creates or updates the database given a resource manifest.
-  # @note *does not* verify the object persisted safely. Use `valid?` and `errors` for that.
+  #
+  # @note *does not* verify the object persisted safely.
+  #   Use `valid?` and `errors` for that.
   #
   # @param manifest [Hash] The manifest to persist
   # @return [Resource] the updated or created manifest.
   def self.create_or_update_from_manifest(manifest)
     data = convert_manifest_to_resource_schema(manifest)
-    resource = find_by(:name => data[:name])
+    resource = find_by(name: data[:name])
 
     if resource
       resource.update(data)

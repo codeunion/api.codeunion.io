@@ -1,30 +1,36 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 ruby File.read(".ruby-version").chomp
 
-gem 'rails', '4.2.0.rc2'
-gem 'rails-api'
-gem 'rack-cors', :require => 'rack/cors'
+gem "rails", "4.2.0.rc2"
+gem "rails-api"
+gem "rack-cors", require: "rack/cors"
 
-gem 'unicorn'
+gem "unicorn"
 
-gem 'pg'
-gem 'pg_search', git: 'https://github.com/openspectrum/pg_search.git', ref: '72773'
+gem "pg"
+gem "pg_search", git: "https://github.com/openspectrum/pg_search.git", ref: "72773"
 
-gem 'octokit', '3.7.0'
+gem "octokit", "3.7.0"
 
 group :development do
-  gem 'spring'
-  gem 'dotenv-rails'
-  gem 'foreman'
-  gem 'yard'
+  # Infrastructure
+  gem "spring"
+  gem "foreman"
+
+  # Environment Setup
+  gem "dotenv-rails"
+
+  # Style + Documentation
+  gem "rubocop"
+  gem "yard"
 end
 
 group :test do
-  gem 'factory_girl_rails', '4.5.0'
-  gem 'rspec-rails', '3.1.0'
+  gem "factory_girl_rails", "4.5.0"
+  gem "rspec-rails", "3.1.0"
 end
 
 group :production do
-  gem 'rails_12factor'
+  gem "rails_12factor"
 end

@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "Searching for Resources" do
   it "Stores search results for resources returned by the query" do
@@ -7,7 +7,7 @@ describe "Searching for Resources" do
 
     search_query = "information"
 
-    get "/v1/search", { :query => search_query }
+    get "/v1/search", query: search_query
 
     findable_resources.each do |resource|
       expect(resource).to have_search_results_for(search_query)

@@ -1,6 +1,6 @@
-require 'uri'
-require 'base64'
-require 'multi_json'
+require "uri"
+require "base64"
+require "multi_json"
 
 # Loads a resource into a resource storage container.
 #
@@ -66,7 +66,7 @@ class ResourceLoader
   # @return [Hash]
   #  A resource manifest
   def manifest
-    repo_name = url_path[0] == '/' ? url_path[1..-1] : url_path
+    repo_name = url_path[0] == "/" ? url_path[1..-1] : url_path
 
     GithubRepositoryResource.new(repo_name, @client).to_h
   end
@@ -123,7 +123,7 @@ class ResourceLoader
     #   instance used to make calls to the GitHub API.
     def initialize(full_repo_name, client)
       @full_repo_name = full_repo_name
-      @org_name, @repo_name = full_repo_name.split('/')
+      @org_name, @repo_name = full_repo_name.split("/")
       @client = client
     end
 
@@ -170,7 +170,7 @@ class ResourceLoader
       return @_manifest_exists unless @_manifest_exists.nil?
 
       @_manifest_exists = client.contents(full_repo_name).any? do |f|
-        f.path == 'manifest.json'
+        f.path == "manifest.json"
       end
     end
 
@@ -196,7 +196,7 @@ class ResourceLoader
 
     def github_manifest
       @_github_manifest ||= MultiJson.load(
-        content(client.contents(full_repo_name, path: 'manifest.json')),
+        content(client.contents(full_repo_name, path: "manifest.json")),
         symbolize_keys: true
       )
     end
