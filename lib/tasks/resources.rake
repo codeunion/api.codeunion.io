@@ -28,6 +28,10 @@ namespace :resources do
          "to add it?"
   end
 
+  def print_line(repo_name, has_manifest, col_width)
+    printf "%-#{col_width}s\t%s\n", repo_name, has_manifest
+  end
+
   desc "Creates a project, example, or resource"
   task :create, [:url] => :environment do |_task, arguments|
     cli = ResourceLoader::CLI.new(
@@ -55,6 +59,22 @@ namespace :resources do
       with_resource_errors(loader) do
         loader.retrieve_and_store
       end
+    end
+  end
+
+  desc "Lists all potential resources"
+  task list: :environment do
+    repos = github_public_client.org_repos("codeunion", per_page: 200)
+    col_width = repos.map(&:full_name).map(&:length).max
+
+    print_line("repo_name", "has_manifest", col_width)
+
+    repos.each do |repo|
+      has_manifest = repo.rels[:contents].get.data.any? do |f|
+        f[:path] == "manifest.json"
+      end
+
+      print_line(repo.full_name, has_manifest, col_width)
     end
   end
 end
