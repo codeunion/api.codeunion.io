@@ -65,7 +65,9 @@ class Resource < ActiveRecord::Base
   end
 
   # Idempotently creates or updates the database given a resource manifest.
-  # @note *does not* verify the object persisted safely. Use `valid?` and `errors` for that.
+  #
+  # @note *does not* verify the object persisted safely.
+  #   Use `valid?` and `errors` for that.
   #
   # @param manifest [Hash] The manifest to persist
   # @return [Resource] the updated or created manifest.
