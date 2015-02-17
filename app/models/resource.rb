@@ -27,7 +27,6 @@ class Resource < ActiveRecord::Base
     }
   )
 
-
   def self.search(options = {})
     category = options.fetch(:category, nil)
     query    = options.fetch(:query, nil)
