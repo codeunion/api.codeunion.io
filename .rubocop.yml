@@ -1,0 +1,137 @@
+AllCops:
+  Exclude:
+    - bin/**/*
+    - db/schema.rb
+
+# Checks for ambiguous regexp literals when invoke method w/o parens
+Lint/AmbiguousRegexpLiteral:
+  Enabled: true
+
+# Don't use assignment in conditions unless enclosed in parens (...)
+Lint/AssignmentInCondition:
+  Enabled: true
+  AllowSafeAssignment: true
+
+# Don't supress exceptions
+Lint/HandleExceptions:
+  Enabled: true
+
+# Prefer signalling unused block arguments
+Lint/UnusedBlockArgument:
+  Enabled: true
+
+# Check for unused method arguments
+Lint/UnusedMethodArgument:
+  Enabled: true
+
+# Disable Assignment-Branch-Condition (ABC) metric
+Metrics/AbcSize:
+  Enabled: false
+
+# Detect lines longer than 100 characters
+Metrics/LineLength:
+  Enabled: true
+  Max: 100
+
+# Detect methods longer than 15 lines
+Metrics/MethodLength:
+  Enabled: true
+  Max: 15
+
+# Use Rails.logger.level instead of puts/print/p/etc.
+Rails/Output:
+  Enabled: true
+
+# Prefer indented access modifiers like privated, protected, etc.
+Style/AccessModifierIndentation:
+  Enabled: true
+  EnforcedStyle: indent
+
+# Prefer aligning parameters with fixed indentation
+Style/AlignParameters:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+
+# Do not use block comments (=begin ... =end)
+Style/BlockComments:
+  Enabled: true
+
+# Omit outer braces for Hash argument unless first argument is also a Hash
+Style/BracesAroundHashParameters:
+  Enabled: true
+  EnforcedStyle: context_dependent
+
+# Prefer documentation for non-Rails classes, modules, and methods
+Style/Documentation:
+  Enabled: true
+  Exclude:
+    - app/controllers/**/*.rb
+    - app/models/**/*.rb
+    - config/**/*.rb
+    - db/migrate/*.rb
+
+# Detect extra blank lines
+Style/EmptyLines:
+  Enabled: true
+
+# Detect empty lines before or after block body
+Style/EmptyLinesAroundBlockBody:
+  Enabled: true
+  EnforcedStyle: no_empty_lines
+
+# Prefer Ruby 1.9-style Hash syntax
+Style/HashSyntax:
+  Enabled: true
+  EnforcedStyle: ruby19
+
+# Prefer if/unless at end of line for shorter, single-line conditionals
+Style/IfUnlessModifier:
+  Enabled: true
+  MaxLineLength: 30
+
+# Prefer indenting Hash arguments
+Style/IndentHash:
+  Enabled: true
+  EnforcedStyle: special_inside_parentheses
+
+# Prefer using _ in numeric literals with more than 5 digits
+Style/NumericLiterals:
+  Enabled: true
+  MinDigits: 6
+
+# Prefer (...) over {...} for %-style literals
+Style/PercentLiteralDelimiters:
+  Enabled: true
+
+# Allow predicates in predicate method names (e.g., is_, has_, have_, etc.)
+Style/PredicateName:
+  Enabled: false
+
+# Don't use return where it's not required
+Style/RedundantReturn:
+  Enabled: true
+
+# Offense count: 1
+# Cop supports --auto-correct.
+Style/RedundantSelf:
+  Enabled: true
+
+# Prefer %r{...}-style regex literals when matching more than 1 literal '/'
+Style/RegexpLiteral:
+  Enabled: true
+  MaxSlashes: 1
+
+# Checks that exactly one space is used between a method name and the first
+Style/SingleSpaceBeforeFirstArg:
+  Enabled: true
+
+# Prefer spaces inside braces for non-empty Hash literals
+Style/SpaceInsideHashLiteralBraces:
+  Enabled: true
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+
+# Prefer double-quoted strings by default
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
