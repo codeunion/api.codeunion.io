@@ -41,6 +41,8 @@ Metrics/MethodLength:
 # Use Rails.logger.level instead of puts/print/p/etc.
 Rails/Output:
   Enabled: true
+  Exclude:
+    - config/unicorn.rb
 
 # Prefer indented access modifiers like privated, protected, etc.
 Style/AccessModifierIndentation:
