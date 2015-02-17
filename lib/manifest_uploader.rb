@@ -21,13 +21,16 @@ class ManifestUploader
   # remote manifest if it differs from the supplied manifest.
   def run
     if !repo_manifest_exists?
-      puts "Creating manifest for #{manifest['name']}"
+      Rails.logger.info "Creating manifest for #{manifest['name']}"
+
       create_repo_manifest!
     elsif repo_manifest_changed?
-      puts "Updating manifest for #{manifest['name']}"
+      Rails.logger.info "Updating manifest for #{manifest['name']}"
+
       update_repo_manifest!
     else
-      puts "No changes to manifest for #{manifest['name']}, skipping..."
+      Rails.logger.info "No changes to manifest for #{manifest['name']}, " \
+                        "skipping..."
     end
   end
 
