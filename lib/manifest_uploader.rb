@@ -1,6 +1,7 @@
 require "uri"
 require "json"
 
+# Uploads the supplied manifest to the appropriate GitHub repository
 class ManifestUploader
   # @param client [Octokit::Client]
   #   An {https://github.com/octokit/octokit.rb Octokit::Client} instance
