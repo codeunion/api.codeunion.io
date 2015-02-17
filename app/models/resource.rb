@@ -98,8 +98,6 @@ class Resource < ActiveRecord::Base
     resource
   end
 
-  private
-
   def self.normalize_category(category)
     category.to_s.downcase.singularize
   end
