@@ -50,7 +50,7 @@ class Resource < ActiveRecord::Base
   end
 
   # This is a hack. Better to use something like ActiveModel::Serializer
-  def as_json(options = {})
+  def as_json(_options = {})
     manifest.reverse_merge(
       "excerpt" => respond_to?(:pg_highlight) ? pg_highlight : "",
       "tags"    => []
