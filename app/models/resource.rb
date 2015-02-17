@@ -27,14 +27,20 @@ class Resource < ActiveRecord::Base
     }
   )
 
+  def self.in_category(category)
+    return self if category.blank?
+
+    where("manifest->>'category' = ?", normalize_category(category))
+  end
+
   def self.search(options = {})
     category = options.fetch(:category, nil)
     query    = options.fetch(:query, nil)
 
     resources = Resource.all
 
-    if category && self.valid_category?(category)
-      resources = resources.where("manifest->>'category' = ?", category.to_s)
+    if valid_category?(category)
+      resources = resources.in_category(category)
     end
 
     if query
@@ -61,7 +67,7 @@ class Resource < ActiveRecord::Base
   end
 
   def self.valid_category?(category)
-    CATEGORIES.include? category.downcase
+    CATEGORIES.include? normalize_category(category)
   end
 
   # Idempotently creates or updates the database given a resource manifest.
@@ -90,5 +96,11 @@ class Resource < ActiveRecord::Base
     manifest.delete(:readme)
     resource[:manifest] = manifest
     resource
+  end
+
+  private
+
+  def self.normalize_category(category)
+    category.to_s.downcase.singularize
   end
 end
