@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version").chomp
 
-gem "rails", "4.2.0.rc2"
+gem "rails", "4.2.0"
 gem "rails-api"
 gem "rack-cors", require: "rack/cors"
 
@@ -28,7 +28,7 @@ end
 
 group :test do
   gem "factory_girl_rails", "4.5.0"
-  gem "rspec-rails", "3.1.0"
+  gem "rspec-rails", "3.2.1"
 end
 
 group :production do
