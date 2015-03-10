@@ -47,9 +47,7 @@ class Resource < ActiveRecord::Base
       resources = resources.search_in_readme(query)
     end
 
-    resources.each_with_index do |resource, rank|
-      resource.search_results.create(query: query, rank: rank)
-    end
+    record_search_results!(query, resources)
 
     resources
   end
@@ -97,6 +95,16 @@ class Resource < ActiveRecord::Base
   def self.normalize_category(category)
     category.to_s.downcase.singularize
   end
+
+  def self.record_search_results!(query, resources)
+    import_data = resources.each_with_index.map do |resource, rank|
+      resource.search_results.build(query: query, rank: rank)
+    end
+
+    SearchResult.import(import_data, validate: false)
+  end
+
+  private_class_method :record_search_results!
 
   def has_search_results_for?(query)
     search_results.where(query: query).present?
