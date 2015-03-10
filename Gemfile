@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version").chomp
 
-gem "rails", "4.2.0.rc2"
+gem "rails", "4.2.0"
 gem "rails-api"
 gem "rack-cors", require: "rack/cors"
 
