@@ -13,6 +13,13 @@ gem "pg_search", git: "https://github.com/openspectrum/pg_search.git", ref: "727
 
 gem "octokit", "3.7.0"
 
+# The Oj JSON parser
+gem "oj"
+gem "oj_mimic_json"
+
+# For bulk inserting data
+gem "activerecord-import"
+
 group :development do
   # Infrastructure
   gem "spring"
