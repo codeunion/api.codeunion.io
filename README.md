@@ -18,6 +18,32 @@ $ bin/foreman start
 Your Ruby version is 2.1.5, but your Gemfile specified 2.0.0
 ```
 
+## Using Vagrant/Docker
+This is kind of an example of using Vagrant/Docker to run rails apps. It's by no
+means a good example (omg, using linking between containers to expose databases?
+NO! NO!)
+
+But here's what it takes to get running:
+
+1. Install vagrant + virtualbox
+1. `cd` into this directory
+1. `vagrant up`
+1. `vagrant ssh` - Now you're in the vagrant VM instead of your computer.
+1. `sudo service docker restart` - For some reason, docker won't mount things
+1                                  that are vagrant shares.
+1. `cd /src`
+1. `make start-docker-postgres` - Now postgres is ready for data!
+1. Open a new terminal tab.
+1. `vagrant ssh`
+1. `cd /src`
+1. `make build-docker` - This will build the initial docker image that we'll use
+                         to run the app as well as install any gems.
+1. `make run-docker-bash` - Now you've got a BASH prompt to poke at inside of
+                            the rails environment. 
+1. `createdb -u postgres -h postgres db` - Create a database to do stuff with
+1. `bin/rspec` - Run the tests! (For some reason, this is *horribly slow*)
+1. In a new tab, vagrant ssh in and run `make start-docker-rails` to boot app.
+
 ## Deploying
 
 Assuming access the following heroku apps:
